@@ -1,283 +1,64 @@
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background: url('../images/background.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100vh;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>𝔧𝔞𝔶𝔩𝔬𝔱𝔱𝔦 <3</title>
 
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    padding: 20px;
-    box-sizing: border-box;
-}
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="css/styles.css?v=3" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
 
-.profile-card {
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(10px);
-    padding: 40px;
-    border-radius: 20px;
-    text-align: center;
-    width: 100%;
-    max-width: 500px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    margin-bottom: 20px;
-}
+<body>
+  <!-- Background Layers -->
+  <div class="bg-container"></div>
+  <div class="grid-container"><div class="grid"></div></div>
+  <div class="particles-container" id="particlesContainer"></div>
+  <div class="binary-rain" id="binaryRain"></div>
+  <div class="lightning" id="lightning"></div>
+  <div class="glitch"></div>
+  <div class="scanlines"></div>
 
-.profile-card img {
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    margin-bottom: 20px;
-}
+  <!-- === MENU OVERLAY === -->
+  <div class="container">
+    <div class="profile-card">
+      <img id="profile-pic" src="" alt="Profile Picture" />
+      <h1 id="profile-name"></h1>
+      <p id="profile-title">your suppliers, supplier <3</p>
 
-.profile-card h1 {
-    font-size: 28px;
-    margin: 10px 0;
-}
+      <div class="discord-card">
+        <div class="avatar-container">
+          <img id="discord-pic" src="" alt="Discord Profile Picture" />
+          <div class="indicator" id="status-indicator"></div>
+        </div>
+        <div class="status-text">
+          <span class="username" id="discord-username"></span>
+          <div class="activity" id="activity"></div>
+        </div>
+        <button id="discord-btn">dms open</button>
+      </div>
 
-.profile-card p {
-    font-size: 18px;
-    margin: 5px 0;
-}
+      <div class="links">
+        <a href="https://discord.gg/yourserver" class="modern-btn discord">
+          <i class="fab fa-discord"></i>
+          <span>Discord Server</span>
+        </a>
+        <a href="https://yourwebsite.com" class="modern-btn website">
+          <i class="fas fa-globe"></i>
+          <span>Visit Website</span>
+        </a>
+      </div>
 
-.views {
-  margin-top: 15px;
-  text-align: center;
-  font-size: 14px;
-  color: rgba(200, 100, 255, 0.7); /* soft neon purple */
-  text-shadow: 0 0 6px rgba(200, 100, 255, 0.6);
-  font-family: 'Inter', sans-serif;
-  letter-spacing: 0.5px;
-  transition: color 0.3s ease, text-shadow 0.3s ease;
-}
+      <div class="views">
+        <span id="view-count">64</span> profile views
+      </div>
+    </div>
+  </div>
 
-.views:hover {
-  color: rgba(255, 180, 255, 0.9);
-  text-shadow: 0 0 12px rgba(255, 150, 255, 0.8);
-}
-
-.links {
-    margin-top: 25px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-    width: 100%;
-}
-
-.link-item {
-    background: #222;
-    padding: 12px;
-    margin: 4px 0;
-    border-radius: 5px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-decoration: none;
-    color: white;
-    transition: background 0.3s ease;
-    width: 100%;
-    max-width: 320px;
-}
-
-.link-item:hover {
-    background: #333;
-}
-
-.link-item .link-text {
-    font-size: 16px;
-}
-
-.link-item .arrow {
-    font-size: 20px;
-}
-
-.discord-card {
-    background: rgba(0, 0, 0, 0.7);
-    padding: 20px;
-    margin: 20px auto;
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    width: 100%;
-    max-width: 450px;
-    text-align: left;
-    flex-wrap: wrap;
-}
-
-.avatar-container {
-    position: relative;
-    width: 80px;
-    height: 80px;
-    margin-right: 15px;
-}
-
-.avatar-container img {
-    border-radius: 50%;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.avatar-container .indicator {
-    width: 15px;
-    height: 15px;
-    background: green;
-    border-radius: 50%;
-    position: absolute;
-    bottom: -2px;
-    right: -2px;
-    border: 2px solid #000;
-}
-
-.status-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    flex-grow: 1;
-}
-
-.status-text .username {
-    font-size: 22px;
-    margin-bottom: 5px;
-    font-weight: normal;
-}
-
-.status-text .activity {
-    font-size: 20px;
-    display: flex;
-    align-items: center;
-    font-weight: normal;
-}
-
-.status-text .activity img {
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
-    object-fit: cover;
-    margin-right: 10px;
-}
-
-.discord-card button {
-    background: #7289da;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-    margin-left: 10px;
-    font-size: 14px;
-    margin-top: 10px;
-}
-
-.discord-card button:hover {
-    background: #5b6eae;
-}
-
-.activity-img {
-    width: 40px;
-    height: 40px;
-    object-fit: cover;
-    margin-right: 10px;
-    border-radius: 10px;
-}
-
-.activity-text {
-    font-size: 18px;
-    font-weight: normal;
-}
-
-@media (max-width: 600px) {
-    .profile-card {
-        padding: 20px;
-    }
-
-    .profile-card img {
-        width: 100px;
-        height: 100px;
-    }
-
-    .discord-card {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .avatar-container {
-        width: 60px;
-        height: 60px;
-        margin-right: 0;
-        margin-bottom: 10px;
-    }
-
-    .status-text .username {
-        font-size: 20px;
-    }
-
-    .status-text .activity {
-        font-size: 18px;
-    }
-
-    .discord-card button {
-        margin-left: 0;
-        margin-top: 10px;
-    }
-}
-
-.links {
-  margin-top: 25px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-}
-
-.links {
-  margin-top: 25px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-}
-
-/* --- FINAL MOBILE FIXES --- */
-@media (max-width: 600px) {
-  body {
-    overflow-y: auto; /* allow scrolling on phones */
-    padding: 20px 0;
-  }
-
-  .container {
-    width: 95%;
-    padding: 10px;
-  }
-
-  .profile-card {
-    width: 100%;
-    padding: 20px 10px;
-    border-radius: 15px;
-  }
-
-  .links {
-    width: 100%;
-  }
-
-  .modern-btn {
-    width: 100%;
-    max-width: none;
-    font-size: 15px;
-    padding: 14px 0;
-  }
-}
+  <script src="js/script.js"></script>
+</body>
+</html>
