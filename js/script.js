@@ -94,27 +94,28 @@ document.addEventListener("DOMContentLoaded", () => {
     p.appendChild(s);
   }
 
-  /* --- BINARY RAIN (lighter density, purple glow) --- */
-  const rain = document.getElementById("binaryRain");
-  if (rain) {
-    const numCols = 10; // ↓ fewer columns
-    for (let i = 0; i < numCols; i++) {
-      const col = document.createElement("div");
-      col.className = "binary-column";
-      col.textContent = Array(35)
-        .fill(0)
-        .map(() => (Math.random() > 0.5 ? "1" : "0"))
-        .join("");
-      col.style.left = `${(i / numCols) * 100}%`;
-      col.style.top = `${Math.random() * 100}%`;
-      col.style.animationDuration = `${12 + Math.random() * 8}s`;
-      col.style.animationDelay = `${Math.random() * 5}s`;
-      col.style.color = "rgba(180, 60, 255, 0.3)";
-      col.style.textShadow =
-        "0 0 8px rgba(180, 60, 255, 0.6), 0 0 12px rgba(180, 60, 255, 0.4)";
-      rain.appendChild(col);
-    }
-  }
+/* === BINARY RAIN (vertical + less dense) === */
+const binaryRain = document.getElementById("binaryRain");
+binaryRain.innerHTML = ""; // clear old ones
+
+const numCols = 8; // fewer columns → less clutter
+for (let i = 0; i < numCols; i++) {
+  const col = document.createElement("div");
+  col.className = "binary-column";
+
+  col.style.left = `${(i / numCols) * 100}%`;
+  col.style.animationDuration = `${12 + Math.random() * 6}s`;
+  col.style.animationDelay = `${Math.random() * 4}s`;
+
+  // generate tall binary strings
+  col.textContent = Array(80)
+    .fill(0)
+    .map(() => (Math.random() > 0.5 ? "1" : "0"))
+    .join("");
+
+  binaryRain.appendChild(col);
+}
+
 
   /* --- LIGHTNING --- */
   const light = document.getElementById("lightning");
@@ -139,3 +140,4 @@ document.addEventListener("DOMContentLoaded", () => {
     glitch.style.opacity = 0.05 + Math.random() * 0.1;
   }, 300);
 });
+
