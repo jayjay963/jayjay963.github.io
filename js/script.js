@@ -94,39 +94,45 @@ document.addEventListener("DOMContentLoaded", () => {
     p.appendChild(s);
   }
 
-document.addEventListener("DOMContentLoaded", () => {
-  const host = document.getElementById("binaryRain");
-  if (!host) return;
+<script>
+(function makeBinaryRain(){
+  const host = document.getElementById('binaryRain');
+  if(!host) return;
 
-  const STREAMS = 25; // number of vertical streams
-  const MIN_DURATION = 10;
-  const MAX_DURATION = 20;
+  // tune these two to taste
+  const COLS = 18;             // how many vertical streams across the screen
+  const SPEED_MIN = 12;        // seconds
+  const SPEED_MAX = 22;
 
-  const screenHeight = window.innerHeight;
+  // how tall a “stack” should be so the column always fills the screen
+  const digitHeight = 16;                          // ~ font-size + margin
+  const countPerCol = Math.ceil(window.innerHeight / digitHeight) * 3; // overfill
 
-  for (let i = 0; i < STREAMS; i++) {
-    const el = document.createElement("div");
-    el.className = "binary-line";
+  // clear any previous content (important while iterating)
+  host.innerHTML = '';
 
-    // Generate a binary string — each line is short so it doesn’t wrap
-    const len = 20 + Math.floor(Math.random() * 20);
-    let bits = "";
-    for (let j = 0; j < len; j++) bits += Math.random() > 0.5 ? "1" : "0";
-    el.textContent = bits;
+  for(let i=0;i<COLS;i++){
+    const col = document.createElement('div');
+    col.className = 'binary-col';
 
-    // distribute horizontally across the screen
-    el.style.left = `${(i / STREAMS) * 100}%`;
-    // start slightly above the screen
-    el.style.top = `${-Math.random() * 20}%`;
+    // random speed & delay per column
+    const dur = SPEED_MIN + Math.random()*(SPEED_MAX - SPEED_MIN);
+    const delay = Math.random()*10;
+    col.style.setProperty('--dur', `${dur}s`);
+    col.style.setProperty('--delay', `${delay}s`);
+    col.style.opacity = (0.8 + Math.random()*0.3).toFixed(2);
 
-    // random speed and delay
-    const dur = MIN_DURATION + Math.random() * (MAX_DURATION - MIN_DURATION);
-    el.style.animationDuration = `${dur}s`;
-    el.style.animationDelay = `${(Math.random() * 10).toFixed(2)}s`;
+    // fill column with single digits (no wrapping ever)
+    for(let j=0;j<countPerCol;j++){
+      const s = document.createElement('span');
+      s.textContent = Math.random()>0.5 ? '1' : '0';
+      col.appendChild(s);
+    }
 
-    host.appendChild(el);
+    host.appendChild(col);
   }
-});
+})();
+</script>
   
   /* --- LIGHTNING --- */
   const light = document.getElementById("lightning");
@@ -151,6 +157,7 @@ document.addEventListener("DOMContentLoaded", () => {
     glitch.style.opacity = 0.05 + Math.random() * 0.1;
   }, 300);
 });
+
 
 
 
