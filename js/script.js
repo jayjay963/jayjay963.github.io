@@ -94,34 +94,40 @@ document.addEventListener("DOMContentLoaded", () => {
     p.appendChild(s);
   }
 
-/* === BINARY RAIN (horizontal layout, vertical fall) === */
-const binaryRain = document.getElementById("binaryRain");
-binaryRain.innerHTML = ""; // reset for live reloads
+/* === BINARY RAIN: horizontal lines that fall vertically === */
+(function makeBinaryRain() {
+  const binaryRain = document.getElementById("binaryRain");
+  if (!binaryRain) return;
 
-const numLines = 10; // fewer lines = cleaner look
-for (let i = 0; i < numLines; i++) {
-  const line = document.createElement("div");
-  line.className = "binary-column";
+  // Clear old lines (hot reload safe)
+  binaryRain.innerHTML = "";
 
-  // random binary sequence
-  const bits = Array(80)
-    .fill(0)
-    .map(() => (Math.random() > 0.5 ? "1" : "0"))
-    .join("");
-  line.textContent = bits;
+  // Fewer lines = cleaner look. Adjust to taste.
+  const NUM_LINES = 9;
 
-  // random X position
-  line.style.left = `${Math.random() * 100}%`;
+  for (let i = 0; i < NUM_LINES; i++) {
+    const line = document.createElement("div");
+    line.className = "binary-line";
 
-  // speed + delay variation
-  line.style.animationDuration = `${10 + Math.random() * 8}s`;
-  line.style.animationDelay = `${Math.random() * 4}s`;
+    // make a long horizontal string of 1s/0s
+    const length = 70 + Math.floor(Math.random() * 40);
+    let bits = "";
+    for (let j = 0; j < length; j++) bits += Math.random() > 0.5 ? "1" : "0";
+    line.textContent = bits;
 
-  // optional random width (makes some shorter)
-  line.style.width = `${40 + Math.random() * 40}%`;
+    // random horizontal position
+    line.style.left = `${Math.random() * 100}%`;
 
-  binaryRain.appendChild(line);
-}
+    // per-line speed and delay
+    line.style.animationDuration = `${10 + Math.random() * 8}s`;
+    line.style.animationDelay = `${Math.random() * 4}s`;
+
+    // optional varying width (visually trims long strings)
+    line.style.width = `${40 + Math.random() * 40}%`;
+
+    binaryRain.appendChild(line);
+  }
+})();
 
   /* --- LIGHTNING --- */
   const light = document.getElementById("lightning");
@@ -146,5 +152,6 @@ for (let i = 0; i < numLines; i++) {
     glitch.style.opacity = 0.05 + Math.random() * 0.1;
   }, 300);
 });
+
 
 
