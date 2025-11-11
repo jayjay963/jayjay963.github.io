@@ -1,169 +1,89 @@
-/* ===== DISCORD + PROFILE COUNTER ===== */
-const discordId = '632757650890686485';
+const discordId = '632757650890686485'; // PUT YOUR DISCORD ID HERE
 
 document.addEventListener("DOMContentLoaded", function() {
-  function fetchDiscordData() {
-    fetch(`
+    function fetchDiscordData() {
+        fetch(`
 https://api.lanyard.rest/v1/users/${discordId}`)
-      .then(r => r.json())
-      .then(data => {
-        if (!data.success) return;
-        const d = data.data;
-        const u = d.discord_user;
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    const userData = 
+data.data
+;
+                    const discordUser = userData.discord_user;
 
-        // Profile info
-        document.getElementById("profile-pic").src =
-          `
-https://cdn.discordapp.com/avatars/${u.id}/${u.avatar}.png`;
-        document.getElementById("profile-name").textContent =
-          u.display_name || u.username;
+                    document.getElementById("profile-pic").src = `
+https://cdn.discordapp.com/avatars/${discordUser.id}/${discordUser.avatar}.png`;
+                    document.getElementById("profile-name").textContent = discordUser.display_name || discordUser.username;
 
-        // Discord card info
-        document.getElementById("discord-pic").src =
-          `
-https://cdn.discordapp.com/avatars/${u.id}/${u.avatar}.png`;
-        document.getElementById("discord-username").textContent = `@${u.username}`;
+                    document.getElementById("discord-pic").src = `
+https://cdn.discordapp.com/avatars/${discordUser.id}/${discordUser.avatar}.png`;
+                    document.getElementById("discord-username").textContent = `@${discordUser.username}`;
 
-        // Status
-        const s = d.discord_status;
-        const i = document.getElementById("status-indicator");
-        i.style.background = s === "dnd" ? "red" : s === "idle" ? "yellow" : "green";
+                    const statusIndicator = document.getElementById("status-indicator");
+                    statusIndicator.style.background = userData.discord_status === "dnd" ? "red" : userData.discord_status === "idle" ? "yellow" : "green";
 
-        // Activity
-        const actDiv = document.getElementById("activity");
-        actDiv.innerHTML = "";
-        const rpc = d.activities.find(a => a.type === 0 && a.assets?.large_image);
-        if (rpc) {
-          const img = document.createElement("img");
-          const txt = document.createElement("div");
-          img.src = `
-https://cdn.discordapp.com/app-assets/${rpc.application_id}/${rpc.assets.large_image}.png`;
-          img.classList.add("activity-img");
-          txt.classList.add("activity-text");
-          txt.innerHTML = `<strong>${rpc.name}</strong><br>${rpc.details || ""}<br>${rpc.state || ""}`;
-          actDiv.append(img, txt);
-        } else {
-          const txt = document.createElement("div");
-          txt.textContent = d.activities[0]?.state || "Doing nothing";
-          actDiv.append(txt);
-        }
+                    const activityContainer = document.getElementById("activity");
+                    activityContainer.innerHTML = "";
 
-        // Discord button
-        document.getElementById("discord-btn").onclick = () =>
-          window.open(`
-https://discord.com/users/${u.id}`, "_blank");
-      })
-      .catch(console.error);
-  }
+                    const activities = userData.activities;
+                    const rpcActivity = activities.find(activity => activity.type === 0 && activity.assets && activity.assets.large_image);
 
-  fetchDiscordData();
-  setInterval(fetchDiscordData, 2000);
+                    if (rpcActivity) {
+                        const activityImg = document.createElement("img");
+                        const activityText = document.createElement("div");
+
+                        activityImg.src = `
+https://cdn.discordapp.com/app-assets/${rpcActivity.application_id}/${rpcActivity.assets.large_image}.png`;
+                        activityImg.classList.add('activity-img');
+                        activityText.classList.add('activity-text');
+                        activityText.innerHTML = `<strong>${rpcActivity.name}</strong><br>${rpcActivity.details}<br>${rpcActivity.state}`;
+
+                        activityContainer.appendChild(activityImg);
+                        activityContainer.appendChild(activityText);
+                    } else {
+                        const statusText = userData.activities.length > 0 ? userData.activities[0].state : "Doing nothing";
+                        const activityElement = document.createElement("div");
+                        activityElement.textContent = statusText;
+                        activityContainer.appendChild(activityElement);
+                    }
+
+                    document.getElementById("discord-btn").addEventListener("click", function() {
+                        
+window.open
+(`
+https://discord.com/users/${discordUser.id}`, "_blank");
+                    });
+                }
+            })
+            .catch(error => console.error('Error fetching data:', error));
+    }
+
+    fetchDiscordData();
+    
+    setInterval(fetchDiscordData, 1000);
+
 });
 
-/* ===== PROFILE VIEW COUNTER ===== */
-const namespace = "jaylotti_profile_page";
+// === Profile View Counter ===
+const namespace = "jaylotti_profile_page"; // change to something unique
 const key = "views";
 
-function animateCount(el, val) {
-  let cur = 0;
-  const step = Math.ceil(val / 50);
-  const timer = setInterval(() => {
-    cur += step;
-    if (cur >= val) { cur = val; clearInterval(timer); }
-    el.textContent = cur;
+function animateCount(target, endValue) {
+  let current = 0;
+  const step = Math.ceil(endValue / 50);
+  const interval = setInterval(() => {
+    current += step;
+    if (current >= endValue) {
+      current = endValue;
+      clearInterval(interval);
+    }
+    target.textContent = current;
   }, 20);
 }
 
 fetch(`
 https://api.countapi.xyz/hit/${namespace}/${key}`)
-  .then(r => r.json())
+  .then(res => res.json())
   .then(res => animateCount(document.getElementById("view-count"), res.value))
-  .catch(console.error);
-
-/* ===== BACKGROUND ANIMATIONS ===== */
-document.addEventListener("DOMContentLoaded", () => {
-  /* --- STARS --- */
-  const p = document.getElementById("particlesContainer");
-  for (let i = 0; i < 80; i++) {
-    const s = document.createElement("div");
-    s.className = "particle";
-    s.style.left = `${Math.random() * 100}%`;
-    s.style.top = `${Math.random() * 100}%`;
-    s.style.animationDuration = `${6 + Math.random() * 10}s`;
-    s.style.animationDelay = `${Math.random() * 5}s`;
-    p.appendChild(s);
-  }
-
-<script>
-(function makeBinaryRain(){
-  const host = document.getElementById('binaryRain');
-  if(!host) return;
-
-  // tune these two to taste
-  const COLS = 18;             // how many vertical streams across the screen
-  const SPEED_MIN = 12;        // seconds
-  const SPEED_MAX = 22;
-
-  // how tall a “stack” should be so the column always fills the screen
-  const digitHeight = 16;                          // ~ font-size + margin
-  const countPerCol = Math.ceil(window.innerHeight / digitHeight) * 3; // overfill
-
-  // clear any previous content (important while iterating)
-  host.innerHTML = '';
-
-  for(let i=0;i<COLS;i++){
-    const col = document.createElement('div');
-    col.className = 'binary-col';
-
-    // random speed & delay per column
-    const dur = SPEED_MIN + Math.random()*(SPEED_MAX - SPEED_MIN);
-    const delay = Math.random()*10;
-    col.style.setProperty('--dur', `${dur}s`);
-    col.style.setProperty('--delay', `${delay}s`);
-    col.style.opacity = (0.8 + Math.random()*0.3).toFixed(2);
-
-    // fill column with single digits (no wrapping ever)
-    for(let j=0;j<countPerCol;j++){
-      const s = document.createElement('span');
-      s.textContent = Math.random()>0.5 ? '1' : '0';
-      col.appendChild(s);
-    }
-
-    host.appendChild(col);
-  }
-})();
-</script>
-  
-  /* --- LIGHTNING --- */
-  const light = document.getElementById("lightning");
-  setInterval(() => {
-    if (Math.random() > 0.7) {
-      const flash = document.createElement("div");
-      flash.className = "lightning-flash";
-      flash.style.left = `${Math.random() * 100}%`;
-      flash.style.top = `${Math.random() * 100}%`;
-      flash.style.height = `${60 + Math.random() * 200}px`;
-      flash.style.transition = "opacity 0.2s";
-      light.appendChild(flash);
-      setTimeout(() => (flash.style.opacity = "1"), 30);
-      setTimeout(() => (flash.style.opacity = "0"), 250);
-      setTimeout(() => light.removeChild(flash), 400);
-    }
-  }, 2500);
-
-  /* --- GLITCH FLICKER --- */
-  const glitch = document.querySelector(".glitch");
-  setInterval(() => {
-    glitch.style.opacity = 0.05 + Math.random() * 0.1;
-  }, 300);
-});
-
-
-
-
-
-
-
-
-
-
+  .catch(err => console.error("Error fetching view count:", err));
