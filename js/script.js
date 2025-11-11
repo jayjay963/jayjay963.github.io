@@ -98,39 +98,35 @@ document.addEventListener("DOMContentLoaded", () => {
   const host = document.getElementById("binaryRain");
   if (!host) return;
 
-  const STREAMS = 18; // number of falling horizontal lines
+  const STREAMS = 25; // number of vertical streams
   const MIN_DURATION = 10;
   const MAX_DURATION = 20;
 
-  const screenWidth = window.innerWidth;
   const screenHeight = window.innerHeight;
-  const maxChars = Math.floor(screenWidth / 12);
 
   for (let i = 0; i < STREAMS; i++) {
     const el = document.createElement("div");
     el.className = "binary-line";
 
-    // generate a binary string that fits horizontally
-    const len = maxChars - Math.floor(Math.random() * 50);
+    // Generate a binary string — each line is short so it doesn’t wrap
+    const len = 20 + Math.floor(Math.random() * 20);
     let bits = "";
     for (let j = 0; j < len; j++) bits += Math.random() > 0.5 ? "1" : "0";
     el.textContent = bits;
 
-    // random horizontal starting position (spread across the screen)
-    el.style.left = `${Math.random() * 100}%`;
+    // distribute horizontally across the screen
+    el.style.left = `${(i / STREAMS) * 100}%`;
+    // start slightly above the screen
+    el.style.top = `${-Math.random() * 20}%`;
 
-    // random vertical starting position
-    el.style.top = `${Math.random() * -100}%`;
-
-    // random animation speed & delay
+    // random speed and delay
     const dur = MIN_DURATION + Math.random() * (MAX_DURATION - MIN_DURATION);
     el.style.animationDuration = `${dur}s`;
-    el.style.animationDelay = `${(Math.random() * 5).toFixed(2)}s`;
+    el.style.animationDelay = `${(Math.random() * 10).toFixed(2)}s`;
 
     host.appendChild(el);
   }
 });
-
   
   /* --- LIGHTNING --- */
   const light = document.getElementById("lightning");
@@ -155,6 +151,7 @@ document.addEventListener("DOMContentLoaded", () => {
     glitch.style.opacity = 0.05 + Math.random() * 0.1;
   }, 300);
 });
+
 
 
 
