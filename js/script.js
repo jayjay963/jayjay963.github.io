@@ -1,4 +1,4 @@
-const discordId = '1133030912397938820'; // PUT YOUR DISCORD ID HERE
+const discordId = '632757650890686485'; // PUT YOUR DISCORD ID HERE
 
 document.addEventListener("DOMContentLoaded", function() {
     function fetchDiscordData() {
@@ -53,4 +53,5 @@ document.addEventListener("DOMContentLoaded", function() {
     fetchDiscordData();
     
     setInterval(fetchDiscordData, 1000);
+
 });
