@@ -251,14 +251,24 @@ body {
   background: #5b6eae;
 }
 
-/* ===== BUTTONS ===== */
 .links {
   margin-top: 25px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
-  gap: 16px;
-  width: 100%;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.views {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 14px;
+  color: rgba(200, 100, 255, 0.7);
+  text-shadow: 0 0 6px rgba(200, 100, 255, 0.6);
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.5px;
 }
 
 .modern-btn {
@@ -334,4 +344,5 @@ body {
     padding: 12px 40px;
   }
 }
+
 
