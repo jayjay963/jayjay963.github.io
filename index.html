@@ -46,3 +46,358 @@ https://alxne.com
 
 
 </body></html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Card ✘ Chk Background</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #000;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* --- Background Layers --- */
+    .bg-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(120, 20, 180, 0.4) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(20, 120, 220, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(180, 20, 120, 0.2) 0%, transparent 70%),
+        linear-gradient(135deg, #000 0%, #0a0a0a 50%, #121212 100%);
+    }
+
+    .grid-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .grid {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 200%;
+      background-image:
+        linear-gradient(rgba(120, 20, 180, 0.2) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(120, 20, 180, 0.2) 1px, transparent 1px);
+      background-size: 50px 50px;
+      animation: gridMove 20s linear infinite;
+      transform: translate(-25%, -25%);
+    }
+
+    @keyframes gridMove {
+      0% { transform: translate(-25%, -25%); }
+      100% { transform: translate(0%, 0%); }
+    }
+
+    /* --- Hexagon Pattern --- */
+    .hex-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 2;
+      opacity: 0.1;
+    }
+
+    .hex {
+      position: absolute;
+      width: 60px;
+      height: 34.64px;
+      background-color: transparent;
+      margin: 17.32px 0;
+      border-left: solid 2px rgba(120, 20, 180, 0.5);
+      border-right: solid 2px rgba(120, 20, 180, 0.5);
+    }
+
+    .hex:before,
+    .hex:after {
+      content: "";
+      position: absolute;
+      width: 0;
+      border-left: 30px solid transparent;
+      border-right: 30px solid transparent;
+    }
+
+    .hex:before {
+      bottom: 100%;
+      border-bottom: 17.32px solid rgba(120, 20, 180, 0.5);
+    }
+
+    .hex:after {
+      top: 100%;
+      border-top: 17.32px solid rgba(120, 20, 180, 0.5);
+    }
+
+    /* --- Particles --- */
+    .particles-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 4;
+      overflow: hidden;
+    }
+
+    .particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    /* --- Particle Animations --- */
+    @keyframes float1 {
+      0%, 100% { transform: translate(0, 0) scale(1); opacity: 0; }
+      10%, 90% { opacity: 1; }
+      50% { transform: translate(80px, -120px) scale(1.5); }
+    }
+    @keyframes float2 {
+      0%, 100% { transform: translate(0, 0) scale(1); opacity: 0; }
+      10%, 90% { opacity: 1; }
+      50% { transform: translate(-100px, -90px) scale(1.3); }
+    }
+    @keyframes float3 {
+      0%, 100% { transform: translate(0, 0) scale(1); opacity: 0; }
+      10%, 90% { opacity: 1; }
+      50% { transform: translate(-60px, -140px) scale(1.8); }
+    }
+    @keyframes float4 {
+      0%, 100% { transform: translate(0, 0) scale(1); opacity: 0; }
+      10%, 90% { opacity: 1; }
+      50% { transform: translate(90px, -100px) scale(1.4); }
+    }
+    @keyframes float5 {
+      0%, 100% { transform: translate(0, 0) scale(1); opacity: 0; }
+      10%, 90% { opacity: 1; }
+      50% { transform: translate(-80px, -110px) scale(1.6); }
+    }
+    @keyframes float6 {
+      0%, 100% { transform: translate(0, 0) scale(1); opacity: 0; }
+      10%, 90% { opacity: 1; }
+      50% { transform: translate(70px, -130px) scale(1.2); }
+    }
+    @keyframes float7 {
+      0%, 100% { transform: translate(0, 0) scale(1); opacity: 0; }
+      10%, 90% { opacity: 1; }
+      50% { transform: translate(-90px, -80px) scale(1.7); }
+    }
+    @keyframes float8 {
+      0%, 100% { transform: translate(0, 0) scale(1); opacity: 0; }
+      10%, 90% { opacity: 1; }
+      50% { transform: translate(60px, -150px) scale(1.5); }
+    }
+
+    /* --- Scanlines --- */
+    .scanlines {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 5;
+      background: linear-gradient(to bottom, transparent 50%, rgba(255, 255, 255, 0.03) 50%);
+      background-size: 100% 4px;
+      animation: scanlines 8s linear infinite;
+    }
+    @keyframes scanlines {
+      0% { background-position: 0 0; }
+      100% { background-position: 0 10px; }
+    }
+
+    /* --- Glitch --- */
+    .glitch {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 6;
+      pointer-events: none;
+      animation: glitch 5s infinite;
+    }
+    @keyframes glitch {
+      0%, 100% { opacity: 0; }
+      5% { opacity: 0.1; transform: translateX(-5px); }
+      5.1% { transform: translateX(5px); }
+      5.2% { transform: translateX(-5px); }
+      5.3% { transform: translateX(0); }
+      10% { opacity: 0; }
+    }
+
+    /* --- Binary Rain --- */
+    .binary-rain {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 7;
+      overflow: hidden;
+      opacity: 0.2;
+    }
+
+    .binary-column {
+      position: absolute;
+      top: -100%;
+      font-family: monospace;
+      font-size: 14px;
+      color: rgba(120, 20, 180, 0.8);
+      animation: binaryFall linear infinite;
+    }
+
+    @keyframes binaryFall {
+      0% { top: -100%; }
+      100% { top: 100%; }
+    }
+
+    /* --- Lightning --- */
+    .lightning {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 8;
+      pointer-events: none;
+    }
+
+    .lightning-flash {
+      position: absolute;
+      width: 2px;
+      height: 100px;
+      background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.8), transparent);
+      transform: rotate(45deg);
+      opacity: 0;
+      filter: blur(1px);
+    }
+
+    /* --- Demo Content --- */
+    h1 {
+      position: relative;
+      z-index: 100;
+      font-family: 'Orbitron', monospace;
+      font-size: 3rem;
+      text-transform: uppercase;
+      text-shadow: 0 0 20px rgba(120, 20, 180, 0.8);
+      animation: textPulse 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes textPulse {
+      0% { opacity: 0.8; transform: scale(1); }
+      100% { opacity: 1; transform: scale(1.05); }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Background Layers -->
+  <div class="bg-container"></div>
+  <div class="grid-container"><div class="grid"></div></div>
+  <div class="hex-container" id="hexContainer"></div>
+  <div class="particles-container" id="particlesContainer"></div>
+  <div class="scanlines"></div>
+  <div class="glitch"></div>
+  <div class="binary-rain" id="binaryRain"></div>
+  <div class="lightning" id="lightning"></div>
+
+  <!-- Main content -->
+  <h1>THE NEW ERA BEGINS</h1>
+
+  <!-- Animation Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Hexagons
+      const hexContainer = document.getElementById('hexContainer');
+      for (let i = 0; i < 20; i++) {
+        const hex = document.createElement('div');
+        hex.className = 'hex';
+        hex.style.left = `${Math.random() * 100}%`;
+        hex.style.top = `${Math.random() * 100}%`;
+        hexContainer.appendChild(hex);
+      }
+
+      // Particles
+      const particlesContainer = document.getElementById('particlesContainer');
+      for (let i = 0; i < 50; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = `${Math.random() * 100}%`;
+        particle.style.top = `${Math.random() * 100}%`;
+        const duration = 10 + Math.random() * 20;
+        const delay = Math.random() * 5;
+        particle.style.animation = `float${(i % 8) + 1} ${duration}s ${delay}s infinite`;
+        particlesContainer.appendChild(particle);
+      }
+
+      // Binary rain
+      const binaryRain = document.getElementById('binaryRain');
+      for (let i = 0; i < 10; i++) {
+        const column = document.createElement('div');
+        column.className = 'binary-column';
+        column.style.left = `${Math.random() * 100}%`;
+        column.style.animationDuration = `${5 + Math.random() * 10}s`;
+        column.style.animationDelay = `${Math.random() * 5}s`;
+        let binary = '';
+        for (let j = 0; j < 20; j++) binary += Math.random() > 0.5 ? '1' : '0';
+        column.textContent = binary;
+        binaryRain.appendChild(column);
+      }
+
+      // Lightning flashes
+      const lightning = document.getElementById('lightning');
+      setInterval(() => {
+        if (Math.random() > 0.7) {
+          const flash = document.createElement('div');
+          flash.className = 'lightning-flash';
+          flash.style.left = `${Math.random() * 100}%`;
+          flash.style.top = `${Math.random() * 100}%`;
+          flash.style.height = `${50 + Math.random() * 150}px`;
+          flash.style.transform = `rotate(${Math.random() * 360}deg)`;
+          flash.style.opacity = '0';
+          flash.style.transition = 'opacity 0.2s';
+          lightning.appendChild(flash);
+          setTimeout(() => (flash.style.opacity = '0.8'), 10);
+          setTimeout(() => (flash.style.opacity = '0'), 200);
+          setTimeout(() => lightning.removeChild(flash), 400);
+        }
+      }, 2000);
+    });
+  </script>
+</body>
+</html>
