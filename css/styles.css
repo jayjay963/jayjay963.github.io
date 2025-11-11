@@ -236,49 +236,81 @@ body {
     }
 }
 
+/* --- MODERN BUTTONS --- */
 .links {
   margin-top: 25px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
+  gap: 16px;
+  width: 100%;
 }
 
-.links {
-  margin-top: 25px;
+.modern-btn {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 12px;
+  justify-content: center;
+  gap: 10px;
+  width: 90%;
+  max-width: 350px;
+  padding: 14px 0;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  color: #fff;
+  transition: all 0.25s ease;
+  box-sizing: border-box;
+  text-align: center;
 }
 
-/* --- FINAL MOBILE FIXES --- */
-@media (max-width: 600px) {
-  body {
-    overflow-y: auto; /* allow scrolling on phones */
-    padding: 20px 0;
-  }
+.modern-btn i {
+  font-size: 1.3rem;
+}
 
-  .container {
-    width: 95%;
-    padding: 10px;
-  }
+/* Discord */
+.modern-btn.discord {
+  background: linear-gradient(90deg, #5865f2, #4752c4);
+  box-shadow: 0 4px 15px rgba(88, 101, 242, 0.4);
+}
 
-  .profile-card {
-    width: 100%;
-    padding: 20px 10px;
-    border-radius: 15px;
-  }
+/* Website */
+.modern-btn.website {
+  background: linear-gradient(90deg, #00b4d8, #0077b6);
+  box-shadow: 0 4px 15px rgba(0, 180, 216, 0.4);
+}
 
-  .links {
-    width: 100%;
-  }
+.modern-btn:hover,
+.modern-btn:active {
+  transform: scale(1.04);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+}
 
+/* Responsive */
+@media (max-width: 768px) {
   .modern-btn {
-    width: 100%;
-    max-width: none;
+    width: 88%;
+    padding: 13px 0;
     font-size: 15px;
-    padding: 14px 0;
   }
 }
 
+@media (max-width: 480px) {
+  .modern-btn {
+    width: 92%;
+    padding: 12px 0;
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 800px) {
+  .links {
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+  }
+  .modern-btn {
+    width: auto;
+    padding: 12px 40px;
+  }
+}
