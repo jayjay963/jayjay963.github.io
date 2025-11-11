@@ -1,58 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>𝔧𝔞𝔶𝔩𝔬𝔱𝔱𝔦 <3</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-</head>
-<body>
-<div class="container">
-    <div class="profile-card">
-        <img id="profile-pic" src="" alt="Profile Picture">
-        <h1 id="profile-name"></h1>
-        <p id="profile-title">your suppliers, supplier</p>
-        <div class="discord-card">
-            <div class="avatar-container">
-                <img id="discord-pic" src="" alt="Discord Profile Picture">
-                <div class="indicator" id="status-indicator"></div>
-            </div>
-            <div class="status-text">
-                <span class="username" id="discord-username"></span>
-                <div class="activity" id="activity">
-                </div>
-            </div>
-            <button id="discord-btn">add me</button>
-        </div>
-        <div class="links">
-            <a href="
-https://discord.gg/alxne
-" class="link-item">
-                <span class="link-text">Server</span>
-                <span class="arrow">→</span>
-            </a>
-            <a href="
-https://alxne.com
-" class="link-item">
-                <span class="link-text">Website</span>
-                <span class="arrow">→</span>
-            </a>
-        </div>
-    </div>
-</div>
-
-<script src="js/script.js"></script>
-
-
-</body></html>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Card ✘ Chk Background</title>
+  <title>𝔧𝔞𝔶𝔩𝔬𝔱𝔱𝔦 <3</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
@@ -76,7 +29,7 @@ https://alxne.com
       overflow: hidden;
     }
 
-    /* --- Background Layers --- */
+    /* === BACKGROUND LAYERS === */
     .bg-container {
       position: fixed;
       top: 0;
@@ -120,213 +73,26 @@ https://alxne.com
       100% { transform: translate(0%, 0%); }
     }
 
-    /* --- Hexagon Pattern --- */
-    .hex-container {
+    .particles-container, .hex-container, .scanlines, .glitch, .binary-rain, .lightning {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      z-index: 2;
-      opacity: 0.1;
-    }
-
-    .hex {
-      position: absolute;
-      width: 60px;
-      height: 34.64px;
-      background-color: transparent;
-      margin: 17.32px 0;
-      border-left: solid 2px rgba(120, 20, 180, 0.5);
-      border-right: solid 2px rgba(120, 20, 180, 0.5);
-    }
-
-    .hex:before,
-    .hex:after {
-      content: "";
-      position: absolute;
-      width: 0;
-      border-left: 30px solid transparent;
-      border-right: 30px solid transparent;
-    }
-
-    .hex:before {
-      bottom: 100%;
-      border-bottom: 17.32px solid rgba(120, 20, 180, 0.5);
-    }
-
-    .hex:after {
-      top: 100%;
-      border-top: 17.32px solid rgba(120, 20, 180, 0.5);
-    }
-
-    /* --- Particles --- */
-    .particles-container {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 4;
-      overflow: hidden;
-    }
-
-    .particle {
-      position: absolute;
-      width: 4px;
-      height: 4px;
-      background: rgba(255, 255, 255, 0.8);
-      border-radius: 50%;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-    }
-
-    /* --- Particle Animations --- */
-    @keyframes float1 {
-      0%, 100% { transform: translate(0, 0) scale(1); opacity: 0; }
-      10%, 90% { opacity: 1; }
-      50% { transform: translate(80px, -120px) scale(1.5); }
-    }
-    @keyframes float2 {
-      0%, 100% { transform: translate(0, 0) scale(1); opacity: 0; }
-      10%, 90% { opacity: 1; }
-      50% { transform: translate(-100px, -90px) scale(1.3); }
-    }
-    @keyframes float3 {
-      0%, 100% { transform: translate(0, 0) scale(1); opacity: 0; }
-      10%, 90% { opacity: 1; }
-      50% { transform: translate(-60px, -140px) scale(1.8); }
-    }
-    @keyframes float4 {
-      0%, 100% { transform: translate(0, 0) scale(1); opacity: 0; }
-      10%, 90% { opacity: 1; }
-      50% { transform: translate(90px, -100px) scale(1.4); }
-    }
-    @keyframes float5 {
-      0%, 100% { transform: translate(0, 0) scale(1); opacity: 0; }
-      10%, 90% { opacity: 1; }
-      50% { transform: translate(-80px, -110px) scale(1.6); }
-    }
-    @keyframes float6 {
-      0%, 100% { transform: translate(0, 0) scale(1); opacity: 0; }
-      10%, 90% { opacity: 1; }
-      50% { transform: translate(70px, -130px) scale(1.2); }
-    }
-    @keyframes float7 {
-      0%, 100% { transform: translate(0, 0) scale(1); opacity: 0; }
-      10%, 90% { opacity: 1; }
-      50% { transform: translate(-90px, -80px) scale(1.7); }
-    }
-    @keyframes float8 {
-      0%, 100% { transform: translate(0, 0) scale(1); opacity: 0; }
-      10%, 90% { opacity: 1; }
-      50% { transform: translate(60px, -150px) scale(1.5); }
-    }
-
-    /* --- Scanlines --- */
-    .scanlines {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 5;
-      background: linear-gradient(to bottom, transparent 50%, rgba(255, 255, 255, 0.03) 50%);
-      background-size: 100% 4px;
-      animation: scanlines 8s linear infinite;
-    }
-    @keyframes scanlines {
-      0% { background-position: 0 0; }
-      100% { background-position: 0 10px; }
-    }
-
-    /* --- Glitch --- */
-    .glitch {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 6;
-      pointer-events: none;
-      animation: glitch 5s infinite;
-    }
-    @keyframes glitch {
-      0%, 100% { opacity: 0; }
-      5% { opacity: 0.1; transform: translateX(-5px); }
-      5.1% { transform: translateX(5px); }
-      5.2% { transform: translateX(-5px); }
-      5.3% { transform: translateX(0); }
-      10% { opacity: 0; }
-    }
-
-    /* --- Binary Rain --- */
-    .binary-rain {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 7;
-      overflow: hidden;
-      opacity: 0.2;
-    }
-
-    .binary-column {
-      position: absolute;
-      top: -100%;
-      font-family: monospace;
-      font-size: 14px;
-      color: rgba(120, 20, 180, 0.8);
-      animation: binaryFall linear infinite;
-    }
-
-    @keyframes binaryFall {
-      0% { top: -100%; }
-      100% { top: 100%; }
-    }
-
-    /* --- Lightning --- */
-    .lightning {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 8;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       pointer-events: none;
     }
 
-    .lightning-flash {
-      position: absolute;
-      width: 2px;
-      height: 100px;
-      background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.8), transparent);
-      transform: rotate(45deg);
-      opacity: 0;
-      filter: blur(1px);
-    }
+    .particles-container { z-index: 4; }
+    .binary-rain { z-index: 7; opacity: 0.2; }
+    .lightning { z-index: 8; }
 
-    /* --- Demo Content --- */
-    h1 {
+    .container {
       position: relative;
-      z-index: 100;
-      font-family: 'Orbitron', monospace;
-      font-size: 3rem;
-      text-transform: uppercase;
-      text-shadow: 0 0 20px rgba(120, 20, 180, 0.8);
-      animation: textPulse 3s ease-in-out infinite alternate;
-    }
-
-    @keyframes textPulse {
-      0% { opacity: 0.8; transform: scale(1); }
-      100% { opacity: 1; transform: scale(1.05); }
+      z-index: 100; /* ensures your card stays above the background */
     }
   </style>
 </head>
 
 <body>
-  <!-- Background Layers -->
+  <!-- === BACKGROUND LAYERS === -->
   <div class="bg-container"></div>
   <div class="grid-container"><div class="grid"></div></div>
   <div class="hex-container" id="hexContainer"></div>
@@ -336,13 +102,45 @@ https://alxne.com
   <div class="binary-rain" id="binaryRain"></div>
   <div class="lightning" id="lightning"></div>
 
-  <!-- Main content -->
-  <h1>THE NEW ERA BEGINS</h1>
+  <!-- === YOUR PROFILE CARD === -->
+  <div class="container">
+    <div class="profile-card">
+      <img id="profile-pic" src="" alt="Profile Picture">
+      <h1 id="profile-name"></h1>
+      <p id="profile-title">your suppliers, supplier</p>
 
-  <!-- Animation Script -->
+      <div class="discord-card">
+        <div class="avatar-container">
+          <img id="discord-pic" src="" alt="Discord Profile Picture">
+          <div class="indicator" id="status-indicator"></div>
+        </div>
+        <div class="status-text">
+          <span class="username" id="discord-username"></span>
+          <div class="activity" id="activity"></div>
+        </div>
+        <button id="discord-btn">add me</button>
+      </div>
+
+      <div class="links">
+        <a href="https://discord.gg/alxne" class="link-item">
+          <span class="link-text">Server</span>
+          <span class="arrow">→</span>
+        </a>
+        <a href="https://alxne.com" class="link-item">
+          <span class="link-text">Website</span>
+          <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- === YOUR SCRIPT FILE === -->
+  <script src="js/script.js"></script>
+
+  <!-- === BACKGROUND SCRIPT === -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // Hexagons
+      // Create hexagons
       const hexContainer = document.getElementById('hexContainer');
       for (let i = 0; i < 20; i++) {
         const hex = document.createElement('div');
@@ -352,7 +150,7 @@ https://alxne.com
         hexContainer.appendChild(hex);
       }
 
-      // Particles
+      // Create particles
       const particlesContainer = document.getElementById('particlesContainer');
       for (let i = 0; i < 50; i++) {
         const particle = document.createElement('div');
@@ -365,7 +163,7 @@ https://alxne.com
         particlesContainer.appendChild(particle);
       }
 
-      // Binary rain
+      // Create binary rain
       const binaryRain = document.getElementById('binaryRain');
       for (let i = 0; i < 10; i++) {
         const column = document.createElement('div');
