@@ -110,8 +110,9 @@ document.addEventListener("DOMContentLoaded", () => {
     particlesContainer.appendChild(particle);
   }
 
-  /* --- BINARY RAIN (Slow + Glowing) --- */
-  const binaryRain = document.getElementById("binaryRain");
+/* --- BINARY RAIN (slow purple) --- */
+const binaryRain = document.getElementById("binaryRain");
+if (binaryRain) {
   const numCols = 18;
   const screenWidth = window.innerWidth;
 
@@ -119,21 +120,22 @@ document.addEventListener("DOMContentLoaded", () => {
     const col = document.createElement("div");
     col.classList.add("binary-column");
 
-    // random bits
-    const bits = Array(30)
-      .fill(0)
-      .map(() => (Math.random() > 0.5 ? "1" : "0"))
-      .join("");
+    // 30 random bits
+    col.textContent = Array(30).fill(0).map(() => (Math.random() > 0.5 ? "1" : "0")).join("");
 
-    col.textContent = bits;
+    // place and animate
     col.style.left = `${Math.random() * screenWidth}px`;
-    col.style.animationDuration = `${7 + Math.random() * 5}s`; // slower fall
-    col.style.opacity = 0.2 + Math.random() * 0.4;
+    col.style.top = `${Math.random() * 100}%`;
+    col.style.animationDuration = `${8 + Math.random() * 6}s`;   // 8–14s = slow
+    col.style.animationDelay = `${Math.random() * 3}s`;
 
-    // subtle purple → teal gradient glow
-    col.style.color = Math.random() > 0.5 ? "rgba(200,100,255,0.35)" : "rgba(0,255,150,0.3)";
+    // purple glow
+    col.style.color = "rgba(180, 60, 255, 0.28)";
+    col.style.textShadow = "0 0 6px rgba(180, 60, 255, 0.45)";
+
     binaryRain.appendChild(col);
   }
+}
 
   /* --- LIGHTNING --- */
   const lightning = document.getElementById("lightning");
@@ -167,3 +169,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 250);
   }
 });
+
