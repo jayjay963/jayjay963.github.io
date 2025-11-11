@@ -195,46 +195,58 @@ body {
 
   <script src="js/script.js"></script>
   <script>
-document.addEventListener('DOMContentLoaded', () => {
-  const particlesContainer = document.getElementById('particlesContainer');
+document.addEventListener("DOMContentLoaded", () => {
+  /* === STAR PARTICLES === */
+  const particlesContainer = document.getElementById("particlesContainer");
   for (let i = 0; i < 80; i++) {
-    const particle = document.createElement('div');
-    particle.className = 'particle';
+    const particle = document.createElement("div");
+    particle.className = "particle";
     particle.style.left = `${Math.random() * 100}%`;
     particle.style.top = `${Math.random() * 100}%`;
-    particle.style.animationDuration = `${6 + Math.random() * 12}s`;
+    particle.style.animationDuration = `${6 + Math.random() * 10}s`;
     particle.style.animationDelay = `${Math.random() * 5}s`;
     particlesContainer.appendChild(particle);
   }
 
-  const binaryRain = document.getElementById('binaryRain');
-  for (let i = 0; i < 20; i++) {
-    const col = document.createElement('div');
-    col.className = 'binary-column';
-    col.style.left = `${Math.random() * 100}%`;
-    col.style.animationDuration = `${4 + Math.random() * 5}s`;
+  /* === BINARY RAIN === */
+  const binaryRain = document.getElementById("binaryRain");
+  const numCols = 16;
+  for (let i = 0; i < numCols; i++) {
+    const col = document.createElement("div");
+    col.className = "binary-column";
+    col.style.left = `${(i / numCols) * 100}%`;
+    col.style.animationDuration = `${5 + Math.random() * 4}s`;
     col.style.animationDelay = `${Math.random() * 3}s`;
-    let bits = '';
-    for (let j = 0; j < 25; j++) bits += Math.random() > 0.5 ? '1' : '0';
+    col.style.top = `${Math.random() * 100}%`;
+    let bits = "";
+    for (let j = 0; j < 40; j++) bits += Math.random() > 0.5 ? "1" : "0";
     col.textContent = bits;
     binaryRain.appendChild(col);
   }
 
-  const lightning = document.getElementById('lightning');
+  /* === LIGHTNING FLASH === */
+  const lightning = document.getElementById("lightning");
   setInterval(() => {
-    if (Math.random() > 0.5) {
-      const flash = document.createElement('div');
-      flash.className = 'lightning-flash';
+    if (Math.random() > 0.7) {
+      const flash = document.createElement("div");
+      flash.className = "lightning-flash";
       flash.style.left = `${Math.random() * 100}%`;
       flash.style.top = `${Math.random() * 100}%`;
-      flash.style.height = `${80 + Math.random() * 200}px`;
-      flash.style.transition = 'opacity 0.15s';
+      flash.style.height = `${60 + Math.random() * 200}px`;
+      flash.style.transition = "opacity 0.2s";
       lightning.appendChild(flash);
-      setTimeout(() => (flash.style.opacity = '1'), 20);
-      setTimeout(() => (flash.style.opacity = '0'), 200);
+
+      setTimeout(() => (flash.style.opacity = "1"), 30);
+      setTimeout(() => (flash.style.opacity = "0"), 250);
       setTimeout(() => lightning.removeChild(flash), 400);
     }
   }, 2500);
+
+  /* === OPTIONAL: GLITCH BLINK INTENSITY === */
+  const glitch = document.querySelector(".glitch");
+  setInterval(() => {
+    glitch.style.opacity = 0.05 + Math.random() * 0.1;
+  }, 300);
 });
 </script>
 </body>
