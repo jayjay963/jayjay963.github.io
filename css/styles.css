@@ -67,6 +67,15 @@ body {
   text-shadow: 0 0 12px rgba(255, 150, 255, 0.8);
 }
 
+.links {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+}
+
 .link-item {
     background: #222;
     padding: 12px;
@@ -242,6 +251,7 @@ body {
   align-items: center;
   gap: 12px;
 }
+
 
 
 
