@@ -252,11 +252,32 @@ body {
   gap: 12px;
 }
 
+/* --- FINAL MOBILE FIXES --- */
+@media (max-width: 600px) {
+  body {
+    overflow-y: auto; /* allow scrolling on phones */
+    padding: 20px 0;
+  }
 
+  .container {
+    width: 95%;
+    padding: 10px;
+  }
 
+  .profile-card {
+    width: 100%;
+    padding: 20px 10px;
+    border-radius: 15px;
+  }
 
+  .links {
+    width: 100%;
+  }
 
-
-
-
-
+  .modern-btn {
+    width: 100%;
+    max-width: none;
+    font-size: 15px;
+    padding: 14px 0;
+  }
+}
