@@ -51,6 +51,22 @@ body {
     margin: 5px 0;
 }
 
+.views {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 14px;
+  color: rgba(200, 100, 255, 0.7); /* soft neon purple */
+  text-shadow: 0 0 6px rgba(200, 100, 255, 0.6);
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.views:hover {
+  color: rgba(255, 180, 255, 0.9);
+  text-shadow: 0 0 12px rgba(255, 150, 255, 0.8);
+}
+
 .links {
     margin-top: 15px;
     display: flex;
