@@ -9,7 +9,9 @@
   <link rel="stylesheet" href="css/styles.css" />
 
   <!-- Font Awesome for icons --> 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" /> 
+  <link rel="stylesheet" href="
+https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css
+" /> 
  
   <!-- New button overrides --> 
   <style> 
@@ -173,30 +175,49 @@ body {
   100% { transform: translateY(-100px); opacity: 0.2; } 
 } 
  
-.binary-rain {
-  position: fixed;
-  inset: 0;
-  z-index: 3;
-  pointer-events: none;
-  overflow: hidden;
+/* --- Binary Rain (columns laid out horizontally) --- */
+.binary-rain{
+  position:fixed;
+  inset:0;
+  z-index:3;
+  pointer-events:none;
+  overflow:hidden;
+
+  /* key: lay columns out horizontally */
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+
+  /* little padding so edge columns aren’t glued to the borders */
+  padding:0 2vw;
 }
 
-.binary-line {
-  position: absolute;
-  white-space: nowrap;
-  overflow: hidden;
-  font-family: monospace;
-  font-size: 12px;
-  letter-spacing: 2px;
-  color: rgba(180, 60, 255, 0.25);
-  text-shadow: 0 0 6px rgba(180, 60, 255, 0.45);
-  animation: binaryFall linear infinite;
+/* one vertical stream */
+.binary-col{
+  position:relative;
+  width:14px;          /* column width */
+  height:200%;         /* taller than screen for seamless loop */
+  animation:binaryFall var(--dur,16s) linear infinite;
+  animation-delay:var(--delay,0s);
+  opacity:0.9;         /* subtle variation below */
 }
 
-@keyframes binaryFall {
-  0%   { transform: translateY(-120%); opacity: 0; }
-  10%  { opacity: 1; }
-  100% { transform: translateY(110%); opacity: 0; }
+/* each digit */
+.binary-col span{
+  display:block;       /* stacked downward */
+  font-family:monospace;
+  font-size:14px;
+  line-height:14px;
+  letter-spacing:0;    /* clean column */
+  color:rgba(180,60,255,0.25);
+  text-shadow:0 0 6px rgba(180,60,255,0.45);
+  margin-bottom:2px;
+}
+
+/* animated downward scroll */
+@keyframes binaryFall{
+  0%   { transform:translateY(-100%); }
+  100% { transform:translateY(0%); }
 }
  
 /* Lightning */ 
