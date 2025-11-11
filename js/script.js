@@ -1,80 +1,77 @@
 /* ===== DISCORD + PROFILE COUNTER ===== */
 const discordId = '632757650890686485'; // your Discord ID
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function() {
   function fetchDiscordData() {
     fetch(`https://api.lanyard.rest/v1/users/${discordId}`)
-      .then((response) => response.json())
-      .then((data) => {
+      .then(response => response.json())
+      .then(data => {
         if (data.success) {
           const userData = data.data;
           const discordUser = userData.discord_user;
 
-          // --- Profile Section ---
+          // Profile picture + name
           document.getElementById("profile-pic").src =
             `https://cdn.discordapp.com/avatars/${discordUser.id}/${discordUser.avatar}.png`;
           document.getElementById("profile-name").textContent =
             discordUser.display_name || discordUser.username;
 
-          // --- Discord Card ---
+          // Discord card info
           document.getElementById("discord-pic").src =
             `https://cdn.discordapp.com/avatars/${discordUser.id}/${discordUser.avatar}.png`;
           document.getElementById("discord-username").textContent =
             `@${discordUser.username}`;
 
-          // --- Status Dot ---
+          // Status indicator
           const statusIndicator = document.getElementById("status-indicator");
+          const status = userData.discord_status;
           statusIndicator.style.background =
-            userData.discord_status === "dnd"
+            status === "dnd"
               ? "red"
-              : userData.discord_status === "idle"
+              : status === "idle"
               ? "yellow"
               : "green";
 
-          // --- Activity / RPC ---
+          // Activity
           const activityContainer = document.getElementById("activity");
           activityContainer.innerHTML = "";
 
-          const activities = userData.activities;
-          const rpcActivity = activities.find(
+          const rpcActivity = userData.activities.find(
             (a) => a.type === 0 && a.assets && a.assets.large_image
           );
 
           if (rpcActivity) {
             const activityImg = document.createElement("img");
             const activityText = document.createElement("div");
-
             activityImg.src = `https://cdn.discordapp.com/app-assets/${rpcActivity.application_id}/${rpcActivity.assets.large_image}.png`;
             activityImg.classList.add("activity-img");
             activityText.classList.add("activity-text");
-            activityText.innerHTML = `<strong>${rpcActivity.name}</strong><br>${rpcActivity.details}<br>${rpcActivity.state}`;
-
+            activityText.innerHTML = `<strong>${rpcActivity.name}</strong><br>${rpcActivity.details || ""}<br>${rpcActivity.state || ""}`;
             activityContainer.appendChild(activityImg);
             activityContainer.appendChild(activityText);
           } else {
-            const statusText =
-              activities.length > 0 ? activities[0].state : "Doing nothing";
-            const activityElement = document.createElement("div");
-            activityElement.textContent = statusText;
-            activityContainer.appendChild(activityElement);
+            const text =
+              userData.activities.length > 0
+                ? userData.activities[0].state
+                : "Doing nothing";
+            const activityEl = document.createElement("div");
+            activityEl.textContent = text;
+            activityContainer.appendChild(activityEl);
           }
 
-          // --- DMs Open Button ---
-          document
-            .getElementById("discord-btn")
-            .addEventListener("click", function () {
-              window.open(`https://discord.com/users/${discordUser.id}`, "_blank");
-            });
+          // Discord button
+          document.getElementById("discord-btn").onclick = () =>
+            window.open(`https://discord.com/users/${discordUser.id}`, "_blank");
         }
       })
-      .catch((error) => console.error("Error fetching data:", error));
+      .catch((error) => console.error("Error fetching Discord data:", error));
   }
 
   fetchDiscordData();
-  setInterval(fetchDiscordData, 3000);
+  setInterval(fetchDiscordData, 2000);
 });
 
-/* === Profile View Counter === */
+/* === PROFILE VIEW COUNTER === */
 const namespace = "jaylotti_profile_page";
 const key = "views";
 
@@ -110,37 +107,39 @@ document.addEventListener("DOMContentLoaded", () => {
     particlesContainer.appendChild(particle);
   }
 
-/* --- BINARY RAIN (slow purple) --- */
-const binaryRain = document.getElementById("binaryRain");
-if (binaryRain) {
-  const numCols = 18;
-  const screenWidth = window.innerWidth;
+  /* --- BINARY RAIN (slow purple with glow) --- */
+  const binaryRain = document.getElementById("binaryRain");
+  if (binaryRain) {
+    const numCols = 18;
+    for (let i = 0; i < numCols; i++) {
+      const col = document.createElement("div");
+      col.className = "binary-column";
 
-  for (let i = 0; i < numCols; i++) {
-    const col = document.createElement("div");
-    col.classList.add("binary-column");
+      // Generate random binary string
+      col.textContent = Array(40)
+        .fill(0)
+        .map(() => (Math.random() > 0.5 ? "1" : "0"))
+        .join("");
 
-    // 30 random bits
-    col.textContent = Array(30).fill(0).map(() => (Math.random() > 0.5 ? "1" : "0")).join("");
+      // Position + animation
+      col.style.left = `${(i / numCols) * 100}%`;
+      col.style.top = `${Math.random() * 100}%`;
+      col.style.animationDuration = `${10 + Math.random() * 8}s`; // slow, smooth
+      col.style.animationDelay = `${Math.random() * 6}s`;
 
-    // place and animate
-    col.style.left = `${Math.random() * screenWidth}px`;
-    col.style.top = `${Math.random() * 100}%`;
-    col.style.animationDuration = `${8 + Math.random() * 6}s`;   // 8–14s = slow
-    col.style.animationDelay = `${Math.random() * 3}s`;
+      // Color + glow
+      col.style.color = "rgba(180, 60, 255, 0.3)";
+      col.style.textShadow =
+        "0 0 8px rgba(180, 60, 255, 0.6), 0 0 12px rgba(180, 60, 255, 0.4)";
 
-    // purple glow
-    col.style.color = "rgba(180, 60, 255, 0.28)";
-    col.style.textShadow = "0 0 6px rgba(180, 60, 255, 0.45)";
-
-    binaryRain.appendChild(col);
+      binaryRain.appendChild(col);
+    }
   }
-}
 
-  /* --- LIGHTNING --- */
+  /* --- LIGHTNING FLASH --- */
   const lightning = document.getElementById("lightning");
   setInterval(() => {
-    if (Math.random() > 0.8) {
+    if (Math.random() > 0.7) {
       const flash = document.createElement("div");
       flash.className = "lightning-flash";
       flash.style.left = `${Math.random() * 100}%`;
@@ -148,25 +147,15 @@ if (binaryRain) {
       flash.style.height = `${60 + Math.random() * 200}px`;
       flash.style.transition = "opacity 0.2s";
       lightning.appendChild(flash);
-
       setTimeout(() => (flash.style.opacity = "1"), 30);
       setTimeout(() => (flash.style.opacity = "0"), 250);
       setTimeout(() => lightning.removeChild(flash), 400);
     }
   }, 2500);
 
-  /* --- GLITCH EFFECT --- */
+  /* --- GLITCH FLICKER --- */
   const glitch = document.querySelector(".glitch");
   setInterval(() => {
     glitch.style.opacity = 0.05 + Math.random() * 0.1;
   }, 300);
-
-  /* --- SCANLINE FLICKER --- */
-  const scanlines = document.querySelector(".scanlines");
-  if (scanlines) {
-    setInterval(() => {
-      scanlines.style.opacity = 0.12 + Math.random() * 0.05;
-    }, 250);
-  }
 });
-
