@@ -94,38 +94,41 @@ document.addEventListener("DOMContentLoaded", () => {
     p.appendChild(s);
   }
 
-/* === BINARY RAIN: horizontal lines that fall vertically === */
+/* === BINARY RAIN: single horizontal lines that fall vertically === */
 (function makeBinaryRain() {
-  const binaryRain = document.getElementById("binaryRain");
-  if (!binaryRain) return;
+  const host = document.getElementById("binaryRain");
+  if (!host) return;
 
-  // Clear old lines (hot reload safe)
-  binaryRain.innerHTML = "";
+  // Clear old streams so we don't duplicate on reloads
+  host.innerHTML = "";
 
-  // Fewer lines = cleaner look. Adjust to taste.
-  const NUM_LINES = 9;
+  const STREAMS = 10;             // fewer = cleaner
+  const MIN_DURATION = 12;        // seconds
+  const MAX_DURATION = 20;
 
-  for (let i = 0; i < NUM_LINES; i++) {
-    const line = document.createElement("div");
-    line.className = "binary-line";
+  for (let i = 0; i < STREAMS; i++) {
+    const el = document.createElement("div");
+    el.className = "binary-line";
 
-    // make a long horizontal string of 1s/0s
-    const length = 70 + Math.floor(Math.random() * 40);
+    // Long single-line string of bits
+    const len = 120 + Math.floor(Math.random() * 100);
     let bits = "";
-    for (let j = 0; j < length; j++) bits += Math.random() > 0.5 ? "1" : "0";
-    line.textContent = bits;
+    for (let j = 0; j < len; j++) bits += Math.random() > 0.5 ? "1" : "0";
+    el.textContent = bits;
 
-    // random horizontal position
-    line.style.left = `${Math.random() * 100}%`;
+    // Position horizontally; start above the viewport
+    el.style.left = `${Math.random() * 100}%`;
+    el.style.top = `-10%`;
 
-    // per-line speed and delay
-    line.style.animationDuration = `${10 + Math.random() * 8}s`;
-    line.style.animationDelay = `${Math.random() * 4}s`;
+    // ✅ Never set a width — keeps it 1 long line so it won't wrap
+    // el.style.width = ...  <-- do not set
 
-    // optional varying width (visually trims long strings)
-    line.style.width = `${40 + Math.random() * 40}%`;
+    // Vary speed & start time
+    const dur = MIN_DURATION + Math.random() * (MAX_DURATION - MIN_DURATION);
+    el.style.animationDuration = `${dur}s`;
+    el.style.animationDelay = `${(Math.random() * 4).toFixed(2)}s`;
 
-    binaryRain.appendChild(line);
+    host.appendChild(el);
   }
 })();
 
@@ -152,6 +155,7 @@ document.addEventListener("DOMContentLoaded", () => {
     glitch.style.opacity = 0.05 + Math.random() * 0.1;
   }, 300);
 });
+
 
 
 
