@@ -94,28 +94,34 @@ document.addEventListener("DOMContentLoaded", () => {
     p.appendChild(s);
   }
 
-/* === BINARY RAIN (vertical + less dense) === */
+/* === BINARY RAIN (horizontal layout, vertical fall) === */
 const binaryRain = document.getElementById("binaryRain");
-binaryRain.innerHTML = ""; // clear old ones
+binaryRain.innerHTML = ""; // reset for live reloads
 
-const numCols = 8; // fewer columns → less clutter
-for (let i = 0; i < numCols; i++) {
-  const col = document.createElement("div");
-  col.className = "binary-column";
+const numLines = 10; // fewer lines = cleaner look
+for (let i = 0; i < numLines; i++) {
+  const line = document.createElement("div");
+  line.className = "binary-column";
 
-  col.style.left = `${(i / numCols) * 100}%`;
-  col.style.animationDuration = `${12 + Math.random() * 6}s`;
-  col.style.animationDelay = `${Math.random() * 4}s`;
-
-  // generate tall binary strings
-  col.textContent = Array(80)
+  // random binary sequence
+  const bits = Array(80)
     .fill(0)
     .map(() => (Math.random() > 0.5 ? "1" : "0"))
     .join("");
+  line.textContent = bits;
 
-  binaryRain.appendChild(col);
+  // random X position
+  line.style.left = `${Math.random() * 100}%`;
+
+  // speed + delay variation
+  line.style.animationDuration = `${10 + Math.random() * 8}s`;
+  line.style.animationDelay = `${Math.random() * 4}s`;
+
+  // optional random width (makes some shorter)
+  line.style.width = `${40 + Math.random() * 40}%`;
+
+  binaryRain.appendChild(line);
 }
-
 
   /* --- LIGHTNING --- */
   const light = document.getElementById("lightning");
@@ -140,4 +146,5 @@ for (let i = 0; i < numCols; i++) {
     glitch.style.opacity = 0.05 + Math.random() * 0.1;
   }, 300);
 });
+
 
