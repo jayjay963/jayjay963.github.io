@@ -73,6 +73,42 @@ body {
     flex-direction: column;
     align-items: center;
 }
+/* === Modern Rounded Buttons === */
+.modern-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 28px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  color: #fff;
+  transition: all 0.25s ease;
+  background: linear-gradient(90deg, #5865f2, #3b44e0);
+  box-shadow: 0 2px 10px rgba(88, 101, 242, 0.3);
+}
+
+.modern-btn i {
+  font-size: 1.2rem;
+}
+
+/* Hover animation: subtle lift + glow */
+.modern-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(88, 101, 242, 0.6);
+}
+
+/* Website button variant */
+.modern-btn.web {
+  background: linear-gradient(90deg, #00b4d8, #0077b6);
+  box-shadow: 0 2px 10px rgba(0, 180, 216, 0.3);
+}
+
+.modern-btn.web:hover {
+  box-shadow: 0 4px 15px rgba(0, 180, 216, 0.6);
+  transform: translateY(-2px);
+}
 
 .link-item {
     background: #222;
@@ -250,39 +286,3 @@ body {
   gap: 12px;
 }
 
-/* === Modern Rounded Buttons === */
-.modern-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 28px;
-  border-radius: 999px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 15px;
-  color: #fff;
-  transition: all 0.25s ease;
-  background: linear-gradient(90deg, #5865f2, #3b44e0);
-  box-shadow: 0 2px 10px rgba(88, 101, 242, 0.3);
-}
-
-.modern-btn i {
-  font-size: 1.2rem;
-}
-
-/* Hover animation: subtle lift + glow */
-.modern-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(88, 101, 242, 0.6);
-}
-
-/* Website button variant */
-.modern-btn.web {
-  background: linear-gradient(90deg, #00b4d8, #0077b6);
-  box-shadow: 0 2px 10px rgba(0, 180, 216, 0.3);
-}
-
-.modern-btn.web:hover {
-  box-shadow: 0 4px 15px rgba(0, 180, 216, 0.6);
-  transform: translateY(-2px);
-}
