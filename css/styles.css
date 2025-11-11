@@ -252,32 +252,59 @@ body {
   gap: 12px;
 }
 
-/* --- FINAL MOBILE FIXES --- */
-@media (max-width: 600px) {
+/* === MOBILE FIXES === */
+@media (max-width: 768px) {
   body {
-    overflow-y: auto; /* allow scrolling on phones */
-    padding: 20px 0;
+    overflow-y: auto;
+    height: auto;
   }
 
   .container {
-    width: 95%;
-    padding: 10px;
+    padding: 30px 16px;
   }
 
   .profile-card {
     width: 100%;
-    padding: 20px 10px;
-    border-radius: 15px;
-  }
-
-  .links {
-    width: 100%;
+    max-width: 380px;
+    margin: 0 auto;
+    background: rgba(10, 10, 20, 0.8);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.4);
   }
 
   .modern-btn {
     width: 100%;
     max-width: none;
-    font-size: 15px;
     padding: 14px 0;
+    border-radius: 50px;
+  }
+
+  .discord-card {
+    margin-bottom: 16px;
+  }
+
+  .views {
+    font-size: 14px;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-card {
+    padding: 16px;
+  }
+
+  .modern-btn {
+    font-size: 15px;
+    padding: 12px 0;
+  }
+
+  .profile-card h1 {
+    font-size: 1.2rem;
+  }
+
+  .profile-card p {
+    font-size: 0.9rem;
   }
 }
