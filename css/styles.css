@@ -217,3 +217,57 @@ body {
         margin-top: 10px;
     }
 }
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const hexContainer = document.getElementById('hexContainer');
+    for (let i = 0; i < 20; i++) {
+      const hex = document.createElement('div');
+      hex.className = 'hex';
+      hex.style.left = `${Math.random() * 100}%`;
+      hex.style.top = `${Math.random() * 100}%`;
+      hexContainer.appendChild(hex);
+    }
+
+    const particlesContainer = document.getElementById('particlesContainer');
+    for (let i = 0; i < 50; i++) {
+      const particle = document.createElement('div');
+      particle.className = 'particle';
+      particle.style.left = `${Math.random() * 100}%`;
+      particle.style.top = `${Math.random() * 100}%`;
+      particle.style.animation = `float ${10 + Math.random() * 20}s ease-in-out infinite`;
+      particle.style.animationDelay = `${Math.random() * 5}s`;
+      particlesContainer.appendChild(particle);
+    }
+
+    const binaryRain = document.getElementById('binaryRain');
+    for (let i = 0; i < 10; i++) {
+      const col = document.createElement('div');
+      col.className = 'binary-column';
+      col.style.left = `${Math.random() * 100}%`;
+      col.style.animationDuration = `${5 + Math.random() * 10}s`;
+      col.style.animationDelay = `${Math.random() * 5}s`;
+      let bits = '';
+      for (let j = 0; j < 20; j++) bits += Math.random() > 0.5 ? '1' : '0';
+      col.textContent = bits;
+      binaryRain.appendChild(col);
+    }
+
+    const lightning = document.getElementById('lightning');
+    setInterval(() => {
+      if (Math.random() > 0.7) {
+        const flash = document.createElement('div');
+        flash.className = 'lightning-flash';
+        flash.style.left = `${Math.random() * 100}%`;
+        flash.style.top = `${Math.random() * 100}%`;
+        flash.style.height = `${50 + Math.random() * 150}px`;
+        flash.style.opacity = '0';
+        flash.style.transition = 'opacity 0.2s';
+        lightning.appendChild(flash);
+        setTimeout(() => (flash.style.opacity = '0.8'), 10);
+        setTimeout(() => (flash.style.opacity = '0'), 200);
+        setTimeout(() => lightning.removeChild(flash), 400);
+      }
+    }, 2000);
+  });
+</script>
