@@ -184,27 +184,37 @@ body {
   100% { transform: translateY(-100px); opacity: 0.2; } 
 } 
  
-/* Binary rain — Neon Purple version */ 
-.binary-rain { 
-  z-index: 3; 
-  color: rgba(180, 60, 255, 0.25); /* base text color */ 
-  font-family: monospace; 
-  overflow: visible; 
-  text-shadow: 
-    0 0 6px rgba(180, 60, 255, 0.4), 
-    0 0 12px rgba(180, 60, 255, 0.2); 
-} 
-.binary-column { 
-  position: absolute; 
-  white-space: nowrap; 
-  font-size: 14px; 
-  animation: fall linear infinite; 
-} 
-@keyframes fall { 
-  0% { transform: translateY(-100%); opacity: 0; } 
-  10% { opacity: 1; } 
-  100% { transform: translateY(120%); opacity: 0; } 
-} 
+/* === Binary Rain — fixed vertical version === */
+.binary-rain {
+  z-index: 3;
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.binary-column {
+  position: absolute;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  font-family: monospace;
+  font-size: 14px;
+  line-height: 14px;
+  letter-spacing: 2px;
+  color: rgba(180, 60, 255, 0.3);
+  text-shadow: 0 0 8px rgba(180, 60, 255, 0.6);
+  animation: binaryFall linear infinite;
+
+  /* Optional: fade near top and bottom */
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+  mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+}
+
+@keyframes binaryFall {
+  0% { transform: translateY(-120%); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: translateY(110%); opacity: 0; }
+}
  
 /* Lightning */ 
 .lightning { z-index: 4; } 
