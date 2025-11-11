@@ -51,12 +51,13 @@ body { outline: 4px solid limegreen; }
       background: linear-gradient(90deg, #5865f2, #4752c4); 
       box-shadow: 0 4px 15px rgba(88, 101, 242, 0.4); 
     } 
-    
-    .modern-btn.website {
-      background: linear-gradient(90deg, #00b4d8, #0077b6);
-      box-shadow: 0 4px 15px rgba(0, 180, 216, 0.4);
-      color: #fff;
-    }
+ 
+    .
+modern-btn.website
+ { 
+      background: linear-gradient(90deg, #00b4d8, #0077b6); 
+      box-shadow: 0 4px 15px rgba(0, 180, 216, 0.4); 
+    } 
  
     .modern-btn:hover, 
     .modern-btn:active { 
@@ -94,12 +95,21 @@ body { outline: 4px solid limegreen; }
   </style> 
 </head> 
  
-  <link rel="stylesheet" href="css/styles.css?v=4" />
+  <link rel="stylesheet" href="css/styles.css" /> 
   <link rel="icon" href="favicon.ico" type="image/x-icon" /> 
-  <link rel="preconnect" href=" https://fonts.googleapis.com" /> 
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /> 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet" /> 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> 
+  <link rel="preconnect" href=" 
+https://fonts.googleapis.com 
+" /> 
+  <link rel="preconnect" href=" 
+https://fonts.gstatic.com 
+" crossorigin /> 
+  <link href=" 
+https://fonts.googleapis.com 
+/css2?family=Inter:wght@400;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet" /> 
+  <link rel="stylesheet" href=" 
+https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css 
+"> 
+ 
  
   <style> 
 * { margin: 0; padding: 0; box-sizing: border-box; } 
@@ -175,50 +185,27 @@ body {
   100% { transform: translateY(-100px); opacity: 0.2; } 
 } 
  
-/* --- Binary Rain (columns laid out horizontally) --- */
-.binary-rain{
-  position:fixed;
-  inset:0;
-  z-index:3;
-  pointer-events:none;
-  overflow:hidden;
-
-  /* key: lay columns out horizontally */
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-start;
-
-  /* little padding so edge columns aren’t glued to the borders */
-  padding:0 2vw;
-}
-
-/* one vertical stream */
-.binary-col{
-  position:relative;
-  width:14px;          /* column width */
-  height:200%;         /* taller than screen for seamless loop */
-  animation:binaryFall var(--dur,16s) linear infinite;
-  animation-delay:var(--delay,0s);
-  opacity:0.9;         /* subtle variation below */
-}
-
-/* each digit */
-.binary-col span{
-  display:block;       /* stacked downward */
-  font-family:monospace;
-  font-size:14px;
-  line-height:14px;
-  letter-spacing:0;    /* clean column */
-  color:rgba(180,60,255,0.25);
-  text-shadow:0 0 6px rgba(180,60,255,0.45);
-  margin-bottom:2px;
-}
-
-/* animated downward scroll */
-@keyframes binaryFall{
-  0%   { transform:translateY(-100%); }
-  100% { transform:translateY(0%); }
-}
+/* Binary rain — Neon Purple version */ 
+.binary-rain { 
+  z-index: 3; 
+  color: rgba(180, 60, 255, 0.25); /* base text color */ 
+  font-family: monospace; 
+  overflow: visible; 
+  text-shadow: 
+    0 0 6px rgba(180, 60, 255, 0.4), 
+    0 0 12px rgba(180, 60, 255, 0.2); 
+} 
+.binary-column { 
+  position: absolute; 
+  white-space: nowrap; 
+  font-size: 14px; 
+  animation: fall linear infinite; 
+} 
+@keyframes fall { 
+  0% { transform: translateY(-100%); opacity: 0; } 
+  10% { opacity: 1; } 
+  100% { transform: translateY(120%); opacity: 0; } 
+} 
  
 /* Lightning */ 
 .lightning { z-index: 4; } 
@@ -274,7 +261,7 @@ body {
   <div class="bg-container"></div> 
   <div class="grid-container"><div class="grid"></div></div> 
   <div class="particles-container" id="particlesContainer"></div> 
-  <div class="binary-rain" id="binaryRain"></div>
+  <div class="binary-rain" id="binaryRain"></div> 
   <div class="lightning" id="lightning"></div> 
   <div class="glitch"></div> 
   <div class="scanlines"></div> 
@@ -300,13 +287,13 @@ body {
  
 <div class="links"> 
   <a href="
-https://discord.gg/alxne
+https://discord.gg/yourserver
 " class="modern-btn discord"> 
     <i class="fab fa-discord"></i> 
     <span>Discord Server</span> 
   </a> 
   <a href="
-https://alxne.com
+https://yourwebsite.com
 " class="modern-btn website"> 
     <i class="fas fa-globe"></i> 
     <span>Visit Website</span> 
@@ -320,7 +307,7 @@ https://alxne.com
   </div> 
 </div> 
  
-  <script src="js/script.js?v=4" defer></script> 
+  <script src="js/script.js"></script> 
   <script> 
 document.addEventListener("DOMContentLoaded", () => { 
   /* === STAR PARTICLES === */ 
@@ -384,5 +371,3 @@ flash.style.top
 </script>
 </body>
 </html>
-
-}
