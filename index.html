@@ -173,34 +173,23 @@ body {
   100% { transform: translateY(-100px); opacity: 0.2; } 
 } 
  
-/* Binary rain host */
 .binary-rain {
-  position: fixed !important;
-  inset: 0 !important;
-  z-index: 3 !important;
-  pointer-events: none !important;
-  overflow: hidden !important;
+  position: fixed;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  overflow: hidden;
 }
 
-/* Safety: force no wrapping for anything inside */
-.binary-rain * {
-  white-space: nowrap !important;
-  writing-mode: horizontal-tb !important;
-  text-orientation: mixed !important;
-  display: inline-block !important;
-  max-width: none !important;
-}
-
-/* One falling horizontal line of bits */
 .binary-line {
-  position: absolute !important;
-  font-family: monospace !important;
-  font-size: 12px !important;
-  letter-spacing: 2px !important;
-  color: rgba(180, 60, 255, 0.28) !important;
-  text-shadow: 0 0 6px rgba(180, 60, 255, 0.45) !important;
-  will-change: transform, opacity !important;
-  animation: binaryFall linear infinite !important;
+  position: absolute;
+  white-space: nowrap;
+  font-family: monospace;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: rgba(180, 60, 255, 0.28);
+  text-shadow: 0 0 6px rgba(180, 60, 255, 0.45);
+  animation: binaryFall linear infinite;
 }
 
 @keyframes binaryFall {
