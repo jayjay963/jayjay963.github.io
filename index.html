@@ -90,13 +90,15 @@ body {
   100% { transform: translateY(-100px); opacity: 0.2; }
 }
 
-/* Binary rain */
+/* Binary rain — Neon Purple version */
 .binary-rain {
   z-index: 3;
-  color: rgba(0,255,0,0.25);
+  color: rgba(180, 60, 255, 0.25); /* base text color */
   font-family: monospace;
-  overflow: visible; /* ← CHANGED from hidden */
-  text-shadow: 0 0 6px rgba(0,255,0,0.4);
+  overflow: visible;
+  text-shadow:
+    0 0 6px rgba(180, 60, 255, 0.4),
+    0 0 12px rgba(180, 60, 255, 0.2);
 }
 .binary-column {
   position: absolute;
