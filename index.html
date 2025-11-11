@@ -5,251 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>𝔧𝔞𝔶𝔩𝔬𝔱𝔱𝔦 <3</title>
 
-  <!-- Main site styles -->
-  <link rel="stylesheet" href="css/styles.css" />
-
-  <!-- Font Awesome for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
-  <!-- New button overrides -->
-  <style>
-body { outline: 4px solid limegreen; }    
-    .links {
-      margin-top: 25px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 16px;
-      width: 100%;
-    }
-
-    .modern-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      width: 90%;
-      max-width: 350px;
-      padding: 14px 0;
-      border-radius: 999px;
-      font-weight: 600;
-      font-size: 16px;
-      text-decoration: none;
-      color: #fff;
-      transition: all 0.25s ease;
-      box-sizing: border-box;
-      text-align: center;
-    }
-
-    .modern-btn i {
-      font-size: 1.3rem;
-    }
-
-    .modern-btn.discord {
-      background: linear-gradient(90deg, #5865f2, #4752c4);
-      box-shadow: 0 4px 15px rgba(88, 101, 242, 0.4);
-    }
-
-    .modern-btn.website {
-      background: linear-gradient(90deg, #00b4d8, #0077b6);
-      box-shadow: 0 4px 15px rgba(0, 180, 216, 0.4);
-    }
-
-    .modern-btn:hover,
-    .modern-btn:active {
-      transform: scale(1.04);
-      box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
-    }
-
-    @media (max-width: 768px) {
-      .modern-btn {
-        width: 88%;
-        padding: 13px 0;
-        font-size: 15px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .modern-btn {
-        width: 92%;
-        padding: 12px 0;
-        font-size: 14px;
-      }
-    }
-
-    @media (min-width: 800px) {
-      .links {
-        flex-direction: row;
-        justify-content: center;
-        gap: 20px;
-      }
-      .modern-btn {
-        width: auto;
-        padding: 12px 40px;
-      }
-    }
-  </style>
-</head>
-
-  <link rel="stylesheet" href="css/styles.css" />
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
-  <link rel="preconnect" href="
-https://fonts.googleapis.com
-" />
-  <link rel="preconnect" href="
-https://fonts.gstatic.com
-" crossorigin />
-  <link href="
-https://fonts.googleapis.com
-/css2?family=Inter:wght@400;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="
-https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css
-">
-
-
-  <style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-body {
-  background: #000;
-  font-family: 'Inter', sans-serif;
-  height: 100vh;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  color: #fff;
-}
-
-/* === BACKGROUND LAYERS === */
-.bg-container {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  background:
-    radial-gradient(circle at 20% 20%, rgba(120,20,180,0.5) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(20,120,220,0.4) 0%, transparent 50%),
-    linear-gradient(135deg, #0a0010, #000011 40%, #010010);
-}
-
-.grid-container {
-  position: fixed;
-  inset: 0;
-  overflow: hidden;
-  z-index: 1;
-}
-.grid {
-  position: absolute;
-  width: 200%;
-  height: 200%;
-  background-image:
-    linear-gradient(rgba(120, 20, 180, 0.15) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(120, 20, 180, 0.15) 1px, transparent 1px);
-  background-size: 50px 50px;
-  animation: gridMove 25s linear infinite;
-  transform: translate(-25%, -25%);
-}
-@keyframes gridMove {
-  0% { transform: translate(-25%, -25%); }
-  100% { transform: translate(0%, 0%); }
-}
-
-.particles-container,
-.binary-rain,
-.lightning,
-.glitch,
-.scanlines {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-}
-
-/* Stars */
-.particles-container { z-index: 2; }
-.particle {
-  position: absolute;
-  width: 3px;
-  height: 3px;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 50%;
-  animation: float linear infinite;
-}
-@keyframes float {
-  0% { transform: translateY(0); opacity: 0.2; }
-  50% { opacity: 1; }
-  100% { transform: translateY(-100px); opacity: 0.2; }
-}
-
-/* Binary rain — Neon Purple version */
-.binary-rain {
-  z-index: 3;
-  color: rgba(180, 60, 255, 0.25); /* base text color */
-  font-family: monospace;
-  overflow: visible;
-  text-shadow:
-    0 0 6px rgba(180, 60, 255, 0.4),
-    0 0 12px rgba(180, 60, 255, 0.2);
-}
-.binary-column {
-  position: absolute;
-  white-space: nowrap;
-  font-size: 14px;
-  animation: fall linear infinite;
-}
-@keyframes fall {
-  0% { transform: translateY(-100%); opacity: 0; }
-  10% { opacity: 1; }
-  100% { transform: translateY(120%); opacity: 0; }
-}
-
-/* Lightning */
-.lightning { z-index: 4; }
-.lightning-flash {
-  position: absolute;
-  width: 2px;
-  background: rgba(255,255,255,1);
-  box-shadow: 0 0 20px 8px rgba(255,255,255,0.6);
-  opacity: 0;
-}
-
-/* Glitch flicker */
-.glitch {
-  z-index: 5;
-  background: repeating-linear-gradient(
-    0deg,
-    rgba(255,255,255,0.05),
-    rgba(255,255,255,0.05) 1px,
-    transparent 2px
-  );
-  animation: glitch 2s infinite linear alternate;
-}
-@keyframes glitch {
-  0% { opacity: 0.05; transform: translateY(0); }
-  50% { opacity: 0.15; transform: translateY(1px); }
-  100% { opacity: 0.05; transform: translateY(0); }
-}
-
-/* Scanlines */
-.scanlines {
-  z-index: 6;
-  background: repeating-linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.2),
-    rgba(0, 0, 0, 0.2) 2px,
-    transparent 4px
-  );
-  mix-blend-mode: overlay;
-  pointer-events: none;
-}
-
-/* Your overlay */
-.container {
-  position: relative;
-  z-index: 100;
-  text-align: center;
-}
-</style>
+  <link rel="stylesheet" href="css/styles.css?v=3" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 
 <body>
@@ -262,98 +23,42 @@ body {
   <div class="glitch"></div>
   <div class="scanlines"></div>
 
-<!-- === YOUR MENU OVERLAY === -->
-<div class="container">
-  <div class="profile-card">
-    <img id="profile-pic" src="" alt="Profile Picture">
-    <h1 id="profile-name"></h1>
-    <p id="profile-title">your suppliers, supplier <3</p>
+  <!-- === MENU OVERLAY === -->
+  <div class="container">
+    <div class="profile-card">
+      <img id="profile-pic" src="" alt="Profile Picture" />
+      <h1 id="profile-name"></h1>
+      <p id="profile-title">your suppliers, supplier <3</p>
 
-    <div class="discord-card">
-      <div class="avatar-container">
-        <img id="discord-pic" src="" alt="Discord Profile Picture">
-        <div class="indicator" id="status-indicator"></div>
+      <div class="discord-card">
+        <div class="avatar-container">
+          <img id="discord-pic" src="" alt="Discord Profile Picture" />
+          <div class="indicator" id="status-indicator"></div>
+        </div>
+        <div class="status-text">
+          <span class="username" id="discord-username"></span>
+          <div class="activity" id="activity"></div>
+        </div>
+        <button id="discord-btn">dms open</button>
       </div>
-      <div class="status-text">
-        <span class="username" id="discord-username"></span>
-        <div class="activity" id="activity"></div>
+
+      <div class="links">
+        <a href="https://discord.gg/yourserver" class="modern-btn discord">
+          <i class="fab fa-discord"></i>
+          <span>Discord Server</span>
+        </a>
+        <a href="https://yourwebsite.com" class="modern-btn website">
+          <i class="fas fa-globe"></i>
+          <span>Visit Website</span>
+        </a>
       </div>
-      <button id="discord-btn">dms open</button>
-    </div>
 
-<div class="links">
-  <a href="https://discord.gg/yourserver" class="modern-btn discord">
-    <i class="fab fa-discord"></i>
-    <span>Discord Server</span>
-  </a>
-  <a href="https://yourwebsite.com" class="modern-btn website">
-    <i class="fas fa-globe"></i>
-    <span>Visit Website</span>
-  </a>
-</div>
-
-    <!-- === PROFILE VIEW COUNTER === -->
-    <div class="views">
-      <span id="view-count">64</span> profile views
+      <div class="views">
+        <span id="view-count">64</span> profile views
+      </div>
     </div>
   </div>
-</div>
 
   <script src="js/script.js"></script>
-  <script>
-document.addEventListener("DOMContentLoaded", () => {
-  /* === STAR PARTICLES === */
-  const particlesContainer = document.getElementById("particlesContainer");
-  for (let i = 0; i < 80; i++) {
-    const particle = document.createElement("div");
-    particle.className = "particle";
-    particle.style.left = `${Math.random() * 100}%`;
-    particle.style.top = `${Math.random() * 100}%`;
-    particle.style.animationDuration = `${6 + Math.random() * 10}s`;
-    particle.style.animationDelay = `${Math.random() * 5}s`;
-    particlesContainer.appendChild(particle);
-  }
-
-  /* === BINARY RAIN === */
-  const binaryRain = document.getElementById("binaryRain");
-  const numCols = 16;
-  for (let i = 0; i < numCols; i++) {
-    const col = document.createElement("div");
-    col.className = "binary-column";
-    col.style.left = `${(i / numCols) * 100}%`;
-    col.style.animationDuration = `${5 + Math.random() * 4}s`;
-    col.style.animationDelay = `${Math.random() * 3}s`;
-    col.style.top = `${Math.random() * 100}%`;
-    let bits = "";
-    for (let j = 0; j < 40; j++) bits += Math.random() > 0.5 ? "1" : "0";
-    col.textContent = bits;
-    binaryRain.appendChild(col);
-  }
-
-  /* === LIGHTNING FLASH === */
-  const lightning = document.getElementById("lightning");
-  setInterval(() => {
-    if (Math.random() > 0.7) {
-      const flash = document.createElement("div");
-      flash.className = "lightning-flash";
-      flash.style.left = `${Math.random() * 100}%`;
-      flash.style.top = `${Math.random() * 100}%`;
-      flash.style.height = `${60 + Math.random() * 200}px`;
-      flash.style.transition = "opacity 0.2s";
-      lightning.appendChild(flash);
-
-      setTimeout(() => (flash.style.opacity = "1"), 30);
-      setTimeout(() => (flash.style.opacity = "0"), 250);
-      setTimeout(() => lightning.removeChild(flash), 400);
-    }
-  }, 2500);
-
-  /* === OPTIONAL: GLITCH BLINK INTENSITY === */
-  const glitch = document.querySelector(".glitch");
-  setInterval(() => {
-    glitch.style.opacity = 0.05 + Math.random() * 0.1;
-  }, 300);
-});
-</script>
 </body>
 </html>
