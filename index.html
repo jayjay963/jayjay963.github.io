@@ -4,50 +4,49 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>𝔧𝔞𝔶𝔩𝔬𝔱𝔱𝔦 <3</title>
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet" />
 
   <style>
-    /* === Background Styles === */
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: 'Inter', sans-serif;
       background: #000;
-      min-height: 100vh;
+      font-family: 'Inter', sans-serif;
+      height: 100vh;
       overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
+      color: #fff;
     }
 
-    /* --- animated background --- */
+    /* === BACKGROUND LAYERS === */
     .bg-container {
       position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+      inset: 0;
       z-index: 0;
       background:
-        radial-gradient(circle at 20% 20%, rgba(120, 20, 180, 0.4) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(20, 120, 220, 0.3) 0%, transparent 50%),
-        radial-gradient(circle at 50% 50%, rgba(180, 20, 120, 0.2) 0%, transparent 70%),
-        linear-gradient(135deg, #000 0%, #0a0a0a 50%, #121212 100%);
+        radial-gradient(circle at 20% 20%, rgba(120,20,180,0.4) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(20,120,220,0.3) 0%, transparent 50%),
+        linear-gradient(135deg, #0a0010, #000011 40%, #010010);
     }
 
     .grid-container {
       position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+      inset: 0;
       overflow: hidden;
       z-index: 1;
     }
+
     .grid {
       position: absolute;
-      width: 200%; height: 200%;
+      width: 200%;
+      height: 200%;
       background-image:
         linear-gradient(rgba(120, 20, 180, 0.15) 1px, transparent 1px),
         linear-gradient(90deg, rgba(120, 20, 180, 0.15) 1px, transparent 1px);
@@ -55,66 +54,126 @@
       animation: gridMove 30s linear infinite;
       transform: translate(-25%, -25%);
     }
+
     @keyframes gridMove {
       0% { transform: translate(-25%, -25%); }
       100% { transform: translate(0%, 0%); }
     }
 
-    .particles-container {
+    .particles-container,
+    .binary-rain,
+    .lightning,
+    .glitch,
+    .scanlines {
       position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      overflow: hidden;
-      z-index: 2;
+      inset: 0;
       pointer-events: none;
     }
-    .particle {
-      position: absolute;
-      width: 4px; height: 4px;
-      background: rgba(255, 255, 255, 0.8);
-      border-radius: 50%;
-      animation: float 12s ease-in-out infinite;
-    }
-    @keyframes float {
-      0%, 100% { transform: translateY(0); opacity: 0; }
-      50% { transform: translateY(-80px); opacity: 1; }
+
+    .particles-container {
+      z-index: 2;
     }
 
-    /* --- menu / profile section --- */
+    .particle {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 50%;
+      animation: float linear infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); opacity: 0.2; }
+      50% { opacity: 1; }
+      100% { transform: translateY(-80px); opacity: 0.2; }
+    }
+
+    .binary-rain {
+      z-index: 3;
+      color: rgba(255,255,255,0.08);
+      font-family: monospace;
+      overflow: hidden;
+    }
+
+    .binary-column {
+      position: absolute;
+      white-space: nowrap;
+      font-size: 12px;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(-100%); opacity: 0; }
+      10% { opacity: 1; }
+      100% { transform: translateY(100%); opacity: 0; }
+    }
+
+    .lightning {
+      z-index: 4;
+    }
+
+    .lightning-flash {
+      position: absolute;
+      width: 2px;
+      background: rgba(255,255,255,0.8);
+      opacity: 0;
+    }
+
+    .glitch {
+      z-index: 5;
+      background: repeating-linear-gradient(
+        0deg,
+        rgba(255,255,255,0.02),
+        rgba(255,255,255,0.02) 1px,
+        transparent 2px
+      );
+      animation: glitch 3s infinite linear alternate;
+    }
+
+    @keyframes glitch {
+      0% { opacity: 0.05; }
+      50% { opacity: 0.1; }
+      100% { opacity: 0.05; }
+    }
+
+    .scanlines {
+      z-index: 6;
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.2),
+        rgba(0, 0, 0, 0.2) 2px,
+        transparent 4px
+      );
+      mix-blend-mode: overlay;
+      pointer-events: none;
+    }
+
+    /* === YOUR MENU === */
     .container {
       position: relative;
-      z-index: 100; /* ensures menu stays above background */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
+      z-index: 100;
       text-align: center;
     }
   </style>
 </head>
-
-<div class="bg-container"></div>
-<div class="grid-container"><div class="grid"></div></div>
-<div class="hex-container" id="hexContainer"></div>
-<div class="particles-container" id="particlesContainer"></div>
-<div class="scanlines"></div>
-<div class="glitch"></div>
-<div class="binary-rain" id="binaryRain"></div>
-<div class="lightning" id="lightning"></div>
 
 <body>
   <!-- Background Layers -->
   <div class="bg-container"></div>
   <div class="grid-container"><div class="grid"></div></div>
   <div class="particles-container" id="particlesContainer"></div>
+  <div class="binary-rain" id="binaryRain"></div>
+  <div class="lightning" id="lightning"></div>
+  <div class="glitch"></div>
+  <div class="scanlines"></div>
 
-  <!-- Your Original Menu -->
+  <!-- === YOUR MENU OVERLAY === -->
   <div class="container">
     <div class="profile-card">
       <img id="profile-pic" src="" alt="Profile Picture">
       <h1 id="profile-name"></h1>
       <p id="profile-title">your suppliers, supplier</p>
-
       <div class="discord-card">
         <div class="avatar-container">
           <img id="discord-pic" src="" alt="Discord Profile Picture">
@@ -126,7 +185,6 @@
         </div>
         <button id="discord-btn">add me</button>
       </div>
-
       <div class="links">
         <a href="https://discord.gg/alxne" class="link-item">
           <span class="link-text">Server</span>
@@ -141,20 +199,47 @@
   </div>
 
   <script src="js/script.js"></script>
-
   <script>
-    // background particle script
     document.addEventListener('DOMContentLoaded', () => {
       const particlesContainer = document.getElementById('particlesContainer');
-      for (let i = 0; i < 50; i++) {
+      for (let i = 0; i < 60; i++) {
         const particle = document.createElement('div');
         particle.className = 'particle';
         particle.style.left = `${Math.random() * 100}%`;
         particle.style.top = `${Math.random() * 100}%`;
-        particle.style.animationDelay = `${Math.random() * 10}s`;
-        particle.style.animationDuration = `${8 + Math.random() * 10}s`;
+        particle.style.animationDuration = `${8 + Math.random() * 12}s`;
+        particle.style.animationDelay = `${Math.random() * 5}s`;
         particlesContainer.appendChild(particle);
       }
+
+      const binaryRain = document.getElementById('binaryRain');
+      for (let i = 0; i < 12; i++) {
+        const col = document.createElement('div');
+        col.className = 'binary-column';
+        col.style.left = `${Math.random() * 100}%`;
+        col.style.animationDuration = `${6 + Math.random() * 6}s`;
+        col.style.animationDelay = `${Math.random() * 3}s`;
+        let bits = '';
+        for (let j = 0; j < 20; j++) bits += Math.random() > 0.5 ? '1' : '0';
+        col.textContent = bits;
+        binaryRain.appendChild(col);
+      }
+
+      const lightning = document.getElementById('lightning');
+      setInterval(() => {
+        if (Math.random() > 0.7) {
+          const flash = document.createElement('div');
+          flash.className = 'lightning-flash';
+          flash.style.left = `${Math.random() * 100}%`;
+          flash.style.top = `${Math.random() * 100}%`;
+          flash.style.height = `${50 + Math.random() * 150}px`;
+          flash.style.transition = 'opacity 0.2s';
+          lightning.appendChild(flash);
+          setTimeout(() => (flash.style.opacity = '1'), 20);
+          setTimeout(() => (flash.style.opacity = '0'), 250);
+          setTimeout(() => lightning.removeChild(flash), 500);
+        }
+      }, 2000);
     });
   </script>
 </body>
