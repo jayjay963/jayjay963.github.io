@@ -176,7 +176,7 @@ body {
   100% { transform: translateY(-100px); opacity: 0.2; } 
 } 
  
-/* Horizontal-line binary that falls vertically */
+/* Binary rain (horizontal lines that FALL DOWN) */
 .binary-rain {
   position: fixed;
   inset: 0;
@@ -187,18 +187,21 @@ body {
 
 .binary-line {
   position: absolute;
-  /* ✅ FORCE HORIZONTAL LAYOUT */
-  writing-mode: horizontal-tb !important;
-  text-orientation: mixed !important;
+
+  /* ✅ absolutely no wrapping, ever */
   white-space: nowrap !important;
 
+  /* force horizontal text layout */
+  writing-mode: horizontal-tb !important;
+  text-orientation: mixed !important;
+
   font-family: monospace;
-  font-size: 13px;
+  font-size: 12px;
   letter-spacing: 2px;
   color: rgba(180, 60, 255, 0.28);
-  text-shadow: 0 0 8px rgba(180, 60, 255, 0.45);
+  text-shadow: 0 0 6px rgba(180, 60, 255, 0.45);
+  will-change: transform, opacity;
 
-  /* fall straight down */
   animation: binaryFall linear infinite;
 }
 
@@ -206,12 +209,6 @@ body {
   0%   { transform: translateY(-120%); opacity: 0; }
   10%  { opacity: 1; }
   100% { transform: translateY(110%); opacity: 0; }
-}
-
-/* optional soft fade top/bottom of each line */
-.binary-line {
-  -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
-  mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
 }
  
 /* Lightning */ 
