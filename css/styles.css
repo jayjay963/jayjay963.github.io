@@ -67,12 +67,15 @@ body {
   text-shadow: 0 0 12px rgba(255, 150, 255, 0.8);
 }
 
+<link rel="stylesheet" href="css/styles.css">
+<style>
+
 .links {
   margin-top: 25px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 14px;
+  gap: 16px;
 }
 
 /* --- Modern Rounded Gradient Buttons --- */
@@ -81,57 +84,61 @@ body {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  padding: 14px 40px;
+  width: 85%;
+  max-width: 360px;
+  padding: 4vw 6vw;
   border-radius: 999px;
-  text-decoration: none;
   font-weight: 600;
-  font-size: 16px;
+  font-size: clamp(14px, 4vw, 17px);
+  text-decoration: none;
   color: #fff;
-  transition: all 0.3s ease;
-  width: 90%;
-  max-width: 320px;
+  transition: all 0.25s ease;
+  text-align: center;
   box-sizing: border-box;
-  touch-action: manipulation; /* for smoother mobile tapping */
+  touch-action: manipulation;
 }
 
 .modern-btn i {
-  font-size: 1.4rem;
+  font-size: clamp(18px, 5vw, 22px);
 }
 
-/* --- Discord Button --- */
+/* Discord Button */
 .modern-btn.discord {
   background: linear-gradient(90deg, #5865f2, #4752c4);
   box-shadow: 0 4px 15px rgba(88, 101, 242, 0.4);
 }
 
+/* Website Button */
 .modern-btn.website {
   background: linear-gradient(90deg, #00b4d8, #0077b6);
   box-shadow: 0 4px 15px rgba(0, 180, 216, 0.4);
 }
 
-/* --- Hover / Tap feedback --- */
 .modern-btn:hover,
 .modern-btn:active {
   transform: scale(1.03);
-  box-shadow: 0 6px 25px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
 }
 
-/* --- RESPONSIVE OPTIMIZATION --- */
+/* --- Mobile refinements --- */
 @media (max-width: 768px) {
+  .links {
+    width: 100%;
+  }
   .modern-btn {
-    font-size: 15px;
-    padding: 12px 20px;
-    width: 80%;
+    width: 90%;
+    padding: 14px 0;
   }
 }
 
 @media (max-width: 480px) {
   .modern-btn {
-    font-size: 14px;
-    padding: 12px 16px;
-    width: 85%;
+    width: 92%;
+    font-size: 15px;
+    padding: 12px 0;
   }
 }
+<style>
 
 .link-item {
     background: #222;
@@ -308,6 +315,7 @@ body {
   align-items: center;
   gap: 12px;
 }
+
 
 
 
