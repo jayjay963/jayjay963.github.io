@@ -176,7 +176,7 @@ body {
   100% { transform: translateY(-100px); opacity: 0.2; } 
 } 
  
-/* === Binary Rain (horizontal layout, vertical fall) === */
+/* Horizontal-line binary that falls vertically */
 .binary-rain {
   position: fixed;
   inset: 0;
@@ -185,29 +185,33 @@ body {
   overflow: hidden;
 }
 
-.binary-column {
+.binary-line {
   position: absolute;
-  white-space: nowrap; /* keep digits in a single horizontal line */
+  /* ✅ FORCE HORIZONTAL LAYOUT */
+  writing-mode: horizontal-tb !important;
+  text-orientation: mixed !important;
+  white-space: nowrap !important;
+
   font-family: monospace;
   font-size: 13px;
   letter-spacing: 2px;
   color: rgba(180, 60, 255, 0.28);
-  text-shadow: 0 0 8px rgba(180, 60, 255, 0.5);
+  text-shadow: 0 0 8px rgba(180, 60, 255, 0.45);
+
+  /* fall straight down */
   animation: binaryFall linear infinite;
 }
 
 @keyframes binaryFall {
-  0% {
-    transform: translateY(-120%);
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(110%);
-    opacity: 0;
-  }
+  0%   { transform: translateY(-120%); opacity: 0; }
+  10%  { opacity: 1; }
+  100% { transform: translateY(110%); opacity: 0; }
+}
+
+/* optional soft fade top/bottom of each line */
+.binary-line {
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+  mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
 }
  
 /* Lightning */ 
@@ -289,15 +293,11 @@ body {
     </div> 
  
 <div class="links"> 
-  <a href="
-https://discord.gg/yourserver
-" class="modern-btn discord"> 
+  <a href="https://discord.gg/alxne" class="modern-btn discord"> 
     <i class="fab fa-discord"></i> 
     <span>Discord Server</span> 
   </a> 
-  <a href="
-https://yourwebsite.com
-" class="modern-btn website"> 
+  <a href="https://alxne.com" class="modern-btn website"> 
     <i class="fas fa-globe"></i> 
     <span>Visit Website</span> 
   </a> 
