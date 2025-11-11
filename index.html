@@ -22,24 +22,25 @@ https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css
 </head>
 
 <body>
-<div class="bg-container"></div>
-<div class="grid-container"><div class="grid"></div></div>
-<div class="particles-container" id="particlesContainer"></div>
-<div class="binary-rain" id="binaryRain"></div>
-<div class="lightning" id="lightning"></div>
-<div class="glitch"></div>
-<div class="scanlines"></div>
+  <!-- === Background Layers (do NOT move or wrap inside container) === -->
+  <div class="bg-container"></div>
+  <div class="grid-container"><div class="grid"></div></div>
+  <div class="particles-container" id="particlesContainer"></div>
+  <div class="binary-rain" id="binaryRain"></div>
+  <div class="lightning" id="lightning"></div>
+  <div class="glitch"></div>
+  <div class="scanlines"></div>
 
-  <!-- === MENU OVERLAY === -->
+  <!-- === Your Content (safe to edit anything below this) === -->
   <div class="container">
     <div class="profile-card">
-      <img id="profile-pic" src="" alt="Profile Picture" />
+      <img id="profile-pic" src="" alt="Profile Picture">
       <h1 id="profile-name"></h1>
-      <p id="profile-title">your suppliers, supplier <3</p>
+      <p id="profile-title">your suppliers, supplier &lt;3</p>
 
       <div class="discord-card">
         <div class="avatar-container">
-          <img id="discord-pic" src="" alt="Discord Profile Picture" />
+          <img id="discord-pic" src="" alt="Discord Profile Picture">
           <div class="indicator" id="status-indicator"></div>
         </div>
         <div class="status-text">
@@ -50,17 +51,11 @@ https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css
       </div>
 
       <div class="links">
-        <a href="
-https://discord.gg/yourserver
-" class="modern-btn discord">
-          <i class="fab fa-discord"></i>
-          <span>Discord Server</span>
+        <a href="https://discord.gg/YOUR_SERVER" class="modern-btn discord">
+          <i class="fab fa-discord"></i><span>Discord Server</span>
         </a>
-        <a href="
-https://yourwebsite.com
-" class="modern-btn website">
-          <i class="fas fa-globe"></i>
-          <span>Visit Website</span>
+        <a href="https://yourwebsite.com" class="modern-btn website">
+          <i class="fas fa-globe"></i><span>Visit Website</span>
         </a>
       </div>
 
@@ -72,4 +67,3 @@ https://yourwebsite.com
 
   <script src="js/script.js?v=2"></script>
 </body>
-</html>
