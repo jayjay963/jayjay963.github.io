@@ -94,39 +94,39 @@ document.addEventListener("DOMContentLoaded", () => {
     p.appendChild(s);
   }
 
-(function makeBinaryRain() {
+document.addEventListener("DOMContentLoaded", () => {
   const host = document.getElementById("binaryRain");
-  if (!host) return;
+  if (!host) {
+    console.error("binaryRain container not found");
+    return;
+  }
 
-  // Clear out anything old
-  host.innerHTML = "";
-
-  const STREAMS = 12;            // density (lower = fewer lines)
-  const MIN_DURATION = 12;       // seconds
+  const STREAMS = 12;
+  const MIN_DURATION = 12;
   const MAX_DURATION = 20;
 
   for (let i = 0; i < STREAMS; i++) {
     const el = document.createElement("div");
     el.className = "binary-line";
 
-    // build one long single-line string of bits (no spaces, no newlines)
+    // long single-line string
     const len = 140 + Math.floor(Math.random() * 120);
     let bits = "";
     for (let j = 0; j < len; j++) bits += Math.random() > 0.5 ? "1" : "0";
     el.textContent = bits;
 
-    // place horizontally; start above viewport
+    // random horizontal position
     el.style.left = `${Math.random() * 100}%`;
-    el.style.top = `-10%`;
+    el.style.top = "-10%";
 
-    // vary speed & start time
+    // random animation speed & delay
     const dur = MIN_DURATION + Math.random() * (MAX_DURATION - MIN_DURATION);
     el.style.animationDuration = `${dur}s`;
     el.style.animationDelay = `${(Math.random() * 4).toFixed(2)}s`;
 
     host.appendChild(el);
   }
-})();
+});
 
   /* --- LIGHTNING --- */
   const light = document.getElementById("lightning");
@@ -151,6 +151,7 @@ document.addEventListener("DOMContentLoaded", () => {
     glitch.style.opacity = 0.05 + Math.random() * 0.1;
   }, 300);
 });
+
 
 
 
