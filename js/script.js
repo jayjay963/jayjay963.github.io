@@ -2,17 +2,20 @@ const discordId = '632757650890686485'; // PUT YOUR DISCORD ID HERE
 
 document.addEventListener("DOMContentLoaded", function() {
     function fetchDiscordData() {
-        fetch(`https://api.lanyard.rest/v1/users/${discordId}`)
+        fetch(`
+https://api.lanyard.rest/v1/users/${discordId}`)
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
                     const userData = data.data;
                     const discordUser = userData.discord_user;
 
-                    document.getElementById("profile-pic").src = `https://cdn.discordapp.com/avatars/${discordUser.id}/${discordUser.avatar}.png`;
+                    document.getElementById("profile-pic").src = `
+https://cdn.discordapp.com/avatars/${discordUser.id}/${discordUser.avatar}.png`;
                     document.getElementById("profile-name").textContent = discordUser.display_name || discordUser.username;
 
-                    document.getElementById("discord-pic").src = `https://cdn.discordapp.com/avatars/${discordUser.id}/${discordUser.avatar}.png`;
+                    document.getElementById("discord-pic").src = `
+https://cdn.discordapp.com/avatars/${discordUser.id}/${discordUser.avatar}.png`;
                     document.getElementById("discord-username").textContent = `@${discordUser.username}`;
 
                     const statusIndicator = document.getElementById("status-indicator");
@@ -28,7 +31,8 @@ document.addEventListener("DOMContentLoaded", function() {
                         const activityImg = document.createElement("img");
                         const activityText = document.createElement("div");
 
-                        activityImg.src = `https://cdn.discordapp.com/app-assets/${rpcActivity.application_id}/${rpcActivity.assets.large_image}.png`;
+                        activityImg.src = `
+https://cdn.discordapp.com/app-assets/${rpcActivity.application_id}/${rpcActivity.assets.large_image}.png`;
                         activityImg.classList.add('activity-img');
                         activityText.classList.add('activity-text');
                         activityText.innerHTML = `<strong>${rpcActivity.name}</strong><br>${rpcActivity.details}<br>${rpcActivity.state}`;
@@ -43,7 +47,8 @@ document.addEventListener("DOMContentLoaded", function() {
                     }
 
                     document.getElementById("discord-btn").addEventListener("click", function() {
-                        window.open(`https://discord.com/users/${discordUser.id}`, "_blank");
+                        window.open(`
+https://discord.com/users/${discordUser.id}`, "_blank");
                     });
                 }
             })
@@ -55,3 +60,26 @@ document.addEventListener("DOMContentLoaded", function() {
     setInterval(fetchDiscordData, 1000);
 
 });
+
+// === Profile View Counter ===
+const namespace = "jaylotti_profile_page"; // change to something unique
+const key = "views";
+
+function animateCount(target, endValue) {
+  let current = 0;
+  const step = Math.ceil(endValue / 50);
+  const interval = setInterval(() => {
+    current += step;
+    if (current >= endValue) {
+      current = endValue;
+      clearInterval(interval);
+    }
+    target.textContent = current;
+  }, 20);
+}
+
+fetch(`
+https://api.countapi.xyz/hit/${namespace}/${key}`)
+  .then(res => res.json())
+  .then(res => animateCount(document.getElementById("view-count"), res.value))
+  .catch(err => console.error("Error fetching view count:", err));
