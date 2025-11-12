@@ -212,8 +212,17 @@ body {
 
     .discord-card {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;  /* ✅ center everything */
+        text-align: center;   /* ✅ better alignment */
+        padding: 16px;
     }
+
+.discord-card button {
+    width: 100%;          /* ✅ full-width button on mobile */
+    margin-left: 0;
+    margin-top: 12px;
+}
+
 
     .avatar-container {
         width: 60px;
@@ -308,3 +317,4 @@ body {
     font-size: 0.9rem;
   }
 }
+
