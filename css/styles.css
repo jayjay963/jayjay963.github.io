@@ -202,41 +202,45 @@ body {
     font-weight: normal;
 }
 
+/* === FORCE HORIZONTAL DISCORD CARD ON MOBILE === */
 @media (max-width: 600px) {
   .discord-card {
-    flex-direction: row;          /* ✅ stay side-by-side even on mobile */
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: nowrap;
-    gap: 12px;                    /* ✅ spacing between avatar/text/button */
+    display: flex !important;
+    flex-direction: row !important;   /* ✅ force horizontal layout */
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex-wrap: nowrap !important;
+    gap: 12px !important;
+    text-align: left !important;
   }
 
   .avatar-container {
-    width: 60px;
-    height: 60px;
-    margin-right: 10px;
-    margin-bottom: 0;             /* ✅ no vertical gap */
+    width: 60px !important;
+    height: 60px !important;
+    margin-right: 10px !important;
+    margin-bottom: 0 !important;
   }
 
   .status-text {
-    flex-grow: 1;
+    flex-grow: 1 !important;
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
 
   .status-text .username {
-    font-size: 18px;
+    font-size: 18px !important;
   }
 
   .status-text .activity {
-    font-size: 16px;
+    font-size: 16px !important;
   }
 
   .discord-card button {
-    margin: 0;                    /* ✅ keep button aligned right */
-    padding: 6px 12px;
-    font-size: 13px;
+    margin: 0 !important;
+    padding: 6px 12px !important;
+    font-size: 13px !important;
+    white-space: nowrap !important;
   }
 }
 
@@ -300,6 +304,7 @@ body {
     font-size: 0.9rem;
   }
 }
+
 
 
 
