@@ -1,62 +1,65 @@
 body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background: url('../images/background.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: url('../images/background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
 }
 
+/* === MAIN CONTAINER === */
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    padding: 20px;
-    margin-bottom: 40px; /* ✅ new line */
-    box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  margin-bottom: 40px;
+  box-sizing: border-box;
 }
 
+/* === PROFILE CARD === */
 .profile-card {
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(10px);
-    padding: 40px;
-    border-radius: 20px;
-    text-align: center;
-    width: 100%;
-    max-width: 500px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    margin-bottom: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
 }
 
 .profile-card img {
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    margin-bottom: 20px;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin-bottom: 20px;
 }
 
 .profile-card h1 {
-    font-size: 28px;
-    margin: 10px 0;
+  font-size: 28px;
+  margin: 10px 0;
 }
 
 .profile-card p {
-    font-size: 18px;
-    margin: 5px 0;
+  font-size: 18px;
+  margin: 5px 0;
 }
 
+/* === PROFILE VIEWS === */
 .views {
   margin-top: 15px;
   text-align: center;
   font-size: 14px;
-  color: rgba(200, 100, 255, 0.7); /* soft neon purple */
+  color: rgba(200, 100, 255, 0.7);
   text-shadow: 0 0 6px rgba(200, 100, 255, 0.6);
   font-family: 'Inter', sans-serif;
   letter-spacing: 0.5px;
@@ -68,43 +71,44 @@ body {
   text-shadow: 0 0 12px rgba(255, 150, 255, 0.8);
 }
 
+/* === LINK BUTTONS === */
 .links {
-    margin-top: 25px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-    width: 100%;
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
 }
 
 .link-item {
-    background: #222;
-    padding: 12px;
-    margin: 4px 0;
-    border-radius: 5px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-decoration: none;
-    color: white;
-    transition: background 0.3s ease;
-    width: 100%;
-    max-width: 320px;
+  background: #222;
+  padding: 12px;
+  margin: 4px 0;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  transition: background 0.3s ease;
+  width: 100%;
+  max-width: 320px;
 }
 
 .link-item:hover {
-    background: #333;
+  background: #333;
 }
 
 .link-item .link-text {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 .link-item .arrow {
-    font-size: 20px;
+  font-size: 20px;
 }
 
-/* === DISCORD CARD STYLING FIX === */
+/* === DISCORD CARD === */
 .discord-card {
   display: flex;
   align-items: center;
@@ -118,10 +122,11 @@ body {
   box-shadow: 0 0 20px rgba(88, 101, 242, 0.3);
 }
 
+/* === AVATAR CONTAINER === */
 .avatar-container {
   position: relative;
   display: inline-block;
-  margin-top: 8px; /* move the entire pfp downward */
+  margin-top: 8px;
 }
 
 #discord-pic {
@@ -129,38 +134,22 @@ body {
   height: 60px;
   border-radius: 50%;
   object-fit: cover;
-  transform: translateY(8px); /* nudges the image down */
 }
 
-/* move the green dot to bottom-right */
+/* === STATUS DOT (Discord-accurate) === */
 #status-indicator {
   position: absolute;
-  bottom: 5px; /* keep close to bottom edge */
-  right: 5px; /* align to right edge */
-  transform: translateY(-4px); /* move dot up slightly relative to PFP */
-  width: 14px;
-  height: 14px;
+  bottom: -3px;  /* slight overlap on bottom */
+  right: -3px;   /* slight overlap on right */
+  width: 16px;   /* fixed Discord size */
+  height: 16px;
+  background-color: #43b581;
   border-radius: 50%;
   border: 2px solid #0d0d1a;
+  z-index: 2;
 }
 
-.avatar-container img {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.indicator {
-  position: absolute;
-  bottom: 4px;
-  right: 4px;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  border: 2px solid #000;
-}
-
+/* === STATUS TEXT === */
 .status-text {
   flex: 1;
   margin-left: 14px;
@@ -176,13 +165,6 @@ body {
   margin-bottom: 4px;
 }
 
-#status-text {
-  font-size: 13px;
-  opacity: 0.85;
-  color: #9fa8da;
-  transition: opacity 0.3s ease;
-}
-
 #activity {
   display: block;
   font-size: 13px;
@@ -191,6 +173,7 @@ body {
   margin-top: 4px;
 }
 
+/* === DISCORD BUTTON === */
 #discord-btn {
   background: #5865f2;
   border: none;
@@ -206,11 +189,11 @@ body {
   background: #4752c4;
 }
 
-/* === FORCE HORIZONTAL DISCORD CARD ON MOBILE === */
+/* === RESPONSIVE === */
 @media (max-width: 600px) {
   .discord-card {
     display: flex !important;
-    flex-direction: row !important;   /* ✅ force horizontal layout */
+    flex-direction: row !important;
     align-items: center !important;
     justify-content: space-between !important;
     flex-wrap: nowrap !important;
@@ -246,31 +229,16 @@ body {
     font-size: 13px !important;
     white-space: nowrap !important;
   }
+
+  #status-indicator {
+    bottom: -3px;
+    right: -3px;
+    width: 16px;
+    height: 16px;
+  }
 }
 
-.avatar-container {
-  position: relative;
-  display: inline-block;
-}
-
-#discord-pic {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-#status-indicator {
-  position: absolute;
-  bottom: 5px;
-  right: 5px;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  border: 2px solid #0d0d1a;
-}
-
-/* === MOBILE FIXES === */
+/* === MOBILE LAYOUT FIXES === */
 @media (max-width: 768px) {
   body {
     overflow-y: auto;
@@ -291,40 +259,10 @@ body {
     box-shadow: 0 4px 25px rgba(0, 0, 0, 0.4);
   }
 
-  .modern-btn {
-    width: 100%;
-    max-width: none;
-    padding: 14px 0;
-    border-radius: 50px;
-  }
-
   .discord-card {
     margin-bottom: 16px;
     transform: scale(0.95);
   }
-
-#status-indicator {
-  position: absolute;
-  bottom: -2px; /* 👈 slightly overlaps the bottom edge */
-  right: -2px;  /* 👈 slightly overlaps the right edge */
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background-color: #43b581; /* Discord green */
-  border: 2px solid #0d0d1a; /* border to separate from background */
-}
-
- }
-@media (max-width: 768px) {
-  #status-indicator {
-    bottom: 8%;
-    right: 8%;
-    width: 12%;
-    height: 12%;
-    border: 1.5px solid #0d0d1a;
-  }
-}
-
 
   #profile-name {
     font-size: 1.2rem;
@@ -347,8 +285,3 @@ body {
     margin-top: 10px;
   }
 }
-
-
-
-
-
