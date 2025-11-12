@@ -303,16 +303,17 @@ body {
     transform: scale(0.95);
   }
 
-  /* ✅ Fix dot position + responsive text size */
- #status-indicator {
-    position: absolute;
-    bottom: 6%;          /* 👈 relative instead of fixed */
-    right: 6%;
-    width: 14%;
-    height: 14%;
-   border-radius: 50%;
-   background-color: #43b581; /* Discord green */
-   border: 2px solid #0d0d1a; /* outline for contrast */
+#status-indicator {
+  position: absolute;
+  bottom: 10px; /* 👈 raised slightly from 5px */
+  right: 5px;
+  transform: translateY(-2px); /* gentle lift for perfect edge alignment */
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid #0d0d1a;
+}
+
  }
 @media (max-width: 768px) {
   #status-indicator {
@@ -346,6 +347,7 @@ body {
     margin-top: 10px;
   }
 }
+
 
 
 
