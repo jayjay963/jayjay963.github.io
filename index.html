@@ -103,17 +103,20 @@ https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css
   <style>  
 * { margin: 0; padding: 0; box-sizing: border-box; }  
   
-body {  
-  background: #000;  
-  font-family: 'Inter', sans-serif;  
-  height: 100vh;  
-  overflow: hidden;  
-  display: flex;  
-  align-items: center;  
-  justify-content: center;  
-  position: relative;  
-  color: #fff;  
-}  
+body {
+  background: #000;
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;      /* ✅ allows content to grow */
+  overflow-x: hidden;     /* ✅ allow vertical scrolling */
+  overflow-y: auto;       /* ✅ fixes mobile cutoff */
+  display: flex;
+  flex-direction: column; /* ✅ ensures vertical stacking */
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: #fff;
+  padding: 20px 0;        /* ✅ some breathing room */
+}
   
 /* === BACKGROUND LAYERS === */  
 .bg-container {  
