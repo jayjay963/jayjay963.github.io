@@ -220,7 +220,17 @@ body {
   .status-text .activity {
     font-size: 16px !important;
   }
-
+/* --- ACTIVITY STATUS TEXT UNDER USERNAME --- */
+  .activity {
+      display: block;
+      font-size: 0.9rem;
+      color: #a9b8ff;           /* soft neon blue tone */
+      opacity: 0.9;
+      margin-top: 3px;
+      text-shadow: 0 0 6px rgba(150, 150, 255, 0.4);
+      transition: opacity 0.3s ease;
+    }
+    
   .discord-card button {
     margin: 0 !important;
     padding: 6px 12px !important;
@@ -289,5 +299,6 @@ body {
     font-size: 0.9rem;
   }
 }
+
 
 
