@@ -314,6 +314,16 @@ body {
    background-color: #43b581; /* Discord green */
    border: 2px solid #0d0d1a; /* outline for contrast */
  }
+@media (max-width: 768px) {
+  #status-indicator {
+    bottom: 8%;
+    right: 8%;
+    width: 12%;
+    height: 12%;
+    border: 1.5px solid #0d0d1a;
+  }
+}
+
 
   #profile-name {
     font-size: 1.2rem;
@@ -336,5 +346,6 @@ body {
     margin-top: 10px;
   }
 }
+
 
 
