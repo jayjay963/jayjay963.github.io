@@ -18,6 +18,7 @@ body {
     align-items: center;
     width: 100%;
     padding: 20px;
+    margin-bottom: 40px; /* ✅ new line */
     box-sizing: border-box;
 }
 
@@ -301,5 +302,6 @@ body {
     font-size: 0.9rem;
   }
 }
+
 
 
