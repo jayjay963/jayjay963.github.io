@@ -308,21 +308,22 @@ body {
   }
 }
 
-/* Force smaller Discord avatar down */
-.discord-card .avatar-container {
+.avatar-container {
   position: relative;
-  top: 10px !important; /* move entire avatar section down */
+  display: inline-block;
 }
 
-.discord-card #discord-pic {
-  display: block;
-  margin-top: 10px !important; /* pushes image down more */
+#discord-pic {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
-.discord-card #status-indicator {
+#status-indicator {
   position: absolute;
-  bottom: 0;
-  right: 0;
+  bottom: 5px;
+  right: 5px;
   width: 14px;
   height: 14px;
   border-radius: 50%;
