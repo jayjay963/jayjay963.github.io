@@ -59,27 +59,28 @@ document.addEventListener("DOMContentLoaded", function() {
                         activityContainer.appendChild(activityElement);
                     }
 
-                    // === Discord Button Click ===
-                    document.getElementById("discord-btn").addEventListener("click", function() {
-                        window.open(`https://discord.com/users/${discordUser.id}`, "_blank");
-                    });
+// === Dynamic "status-text" ===
+const statusTextElement = document.getElementById("status-text");
+let displayText = "Idle";
 
-                    // === Dynamic Status Text (replaces "pay to win") ===
-                    const statusTextElement = document.getElementById("status-text");
-                    let displayText = "Doing nothing";
+const gameActivity = activities.find(a => a.type === 0);
+const customStatus = activities.find(a => a.type === 4);
 
-                    const gameActivity = activities.find(a => a.type === 0);
-                    const customStatus = activities.find(a => a.type === 4);
+if (gameActivity && gameActivity.name) {
+  displayText = `🎮 ${gameActivity.name}`;
+  if (gameActivity.details) displayText += ` — ${gameActivity.details}`;
+  if (gameActivity.state) displayText += ` (${gameActivity.state})`;
+} else if (customStatus && customStatus.state) {
+  displayText = customStatus.state;
+}
 
-                    if (gameActivity && gameActivity.name) {
-                        displayText = `Playing ${gameActivity.name}`;
-                        if (gameActivity.details) displayText += ` — ${gameActivity.details}`;
-                        if (gameActivity.state) displayText += ` (${gameActivity.state})`;
-                    } else if (customStatus && customStatus.state) {
-                        displayText = customStatus.state;
-                    }
+// Smooth fade transition
+statusTextElement.style.opacity = 0;
+setTimeout(() => {
+  statusTextElement.textContent = displayText;
+  statusTextElement.style.opacity = 1;
+}, 200);
 
-                    statusTextElement.textContent = displayText;
                 }
             })
             .catch(error => console.error('Error fetching data:', error));
@@ -111,3 +112,4 @@ fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
     .then(res => animateCount(document.getElementById("view-count"), res.value))
     .catch(err => console.error("Error fetching view count:", err));
 </script>
+
