@@ -203,48 +203,41 @@ body {
 }
 
 @media (max-width: 600px) {
-    .profile-card {
-        padding: 20px;
-    }
+  .discord-card {
+    flex-direction: row;          /* ✅ stay side-by-side even on mobile */
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    gap: 12px;                    /* ✅ spacing between avatar/text/button */
+  }
 
-    .profile-card img {
-        width: 100px;
-        height: 100px;
-    }
+  .avatar-container {
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+    margin-bottom: 0;             /* ✅ no vertical gap */
+  }
 
-    .discord-card {
-        flex-direction: column;
-        align-items: center;  /* ✅ center everything */
-        text-align: center;   /* ✅ better alignment */
-        padding: 16px;
-    }
+  .status-text {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 
-.discord-card button {
-    width: 100%;          /* ✅ full-width button on mobile */
-    margin-left: 0;
-    margin-top: 12px;
-}
+  .status-text .username {
+    font-size: 18px;
+  }
 
+  .status-text .activity {
+    font-size: 16px;
+  }
 
-    .avatar-container {
-        width: 60px;
-        height: 60px;
-        margin-right: 0;
-        margin-bottom: 10px;
-    }
-
-    .status-text .username {
-        font-size: 20px;
-    }
-
-    .status-text .activity {
-        font-size: 18px;
-    }
-
-    .discord-card button {
-        margin-left: 0;
-        margin-top: 10px;
-    }
+  .discord-card button {
+    margin: 0;                    /* ✅ keep button aligned right */
+    padding: 6px 12px;
+    font-size: 13px;
+  }
 }
 
 /* === MOBILE FIXES === */
@@ -307,6 +300,7 @@ body {
     font-size: 0.9rem;
   }
 }
+
 
 
 
