@@ -142,7 +142,7 @@ body {
   height: 16px;
   border-radius: 50%;
   border: 3px solid rgba(0, 0, 0, 0.7);
-  background-color: #43b581; /* green = online */
+  background-color: #43b581; /* online green */
   box-shadow: 0 0 10px #43b581;
 }
 
@@ -299,6 +299,7 @@ body {
     font-size: 0.9rem;
   }
 }
+
 
 
 
