@@ -1,9 +1,9 @@
-<script>
 const discordId = '632757650890686485'; // PUT YOUR DISCORD ID HERE
 
 document.addEventListener("DOMContentLoaded", function() {
     function fetchDiscordData() {
-        fetch(`https://api.lanyard.rest/v1/users/${discordId}`)
+        fetch(`
+https://api.lanyard.rest/v1/users/${discordId}`)
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
@@ -12,13 +12,15 @@ document.addEventListener("DOMContentLoaded", function() {
 
                     // === Profile Image & Name ===
                     document.getElementById("profile-pic").src =
-                        `https://cdn.discordapp.com/avatars/${discordUser.id}/${discordUser.avatar}.png`;
+                        `
+https://cdn.discordapp.com/avatars/${discordUser.id}/${discordUser.avatar}.png`;
                     document.getElementById("profile-name").textContent =
                         discordUser.display_name || discordUser.username;
 
                     // === Discord card image & username ===
                     document.getElementById("discord-pic").src =
-                        `https://cdn.discordapp.com/avatars/${discordUser.id}/${discordUser.avatar}.png`;
+                        `
+https://cdn.discordapp.com/avatars/${discordUser.id}/${discordUser.avatar}.png`;
                     document.getElementById("discord-username").textContent =
                         `@${discordUser.username}`;
 
@@ -42,7 +44,8 @@ document.addEventListener("DOMContentLoaded", function() {
                         const activityText = document.createElement("div");
 
                         activityImg.src =
-                            `https://cdn.discordapp.com/app-assets/${rpcActivity.application_id}/${rpcActivity.assets.large_image}.png`;
+                            `
+https://cdn.discordapp.com/app-assets/${rpcActivity.application_id}/${rpcActivity.assets.large_image}.png`;
                         activityImg.classList.add('activity-img');
                         activityText.classList.add('activity-text');
                         activityText.innerHTML =
@@ -61,7 +64,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
                     // === Discord Button Click ===
                     document.getElementById("discord-btn").addEventListener("click", function() {
-                        window.open(`https://discord.com/users/${discordUser.id}`, "_blank");
+                        window.open(`
+https://discord.com/users/${discordUser.id}`, "_blank");
                     });
 
                     // === Dynamic Status Text (replaces "pay to win") ===
@@ -106,8 +110,9 @@ function animateCount(target, endValue) {
     }, 20);
 }
 
-fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
+fetch(`
+https://api.countapi.xyz/hit/${namespace}/${key}`)
     .then(res => res.json())
     .then(res => animateCount(document.getElementById("view-count"), res.value))
     .catch(err => console.error("Error fetching view count:", err));
-</script>
+
