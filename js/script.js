@@ -93,26 +93,3 @@ https://discord.com/users/${discordUser.id}`, "_blank");
     setInterval(fetchDiscordData, 1000);
 });
 
-// === Profile View Counter ===
-const namespace = "jaylotti_profile_page"; // change to something unique
-const key = "views";
-
-function animateCount(target, endValue) {
-    let current = 0;
-    const step = Math.ceil(endValue / 50);
-    const interval = setInterval(() => {
-        current += step;
-        if (current >= endValue) {
-            current = endValue;
-            clearInterval(interval);
-        }
-        target.textContent = current;
-    }, 20);
-}
-
-fetch(`
-https://api.countapi.xyz/hit/${namespace}/${key}`)
-    .then(res => res.json())
-    .then(res => animateCount(document.getElementById("view-count"), res.value))
-    .catch(err => console.error("Error fetching view count:", err));
-
