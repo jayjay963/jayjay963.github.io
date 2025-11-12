@@ -104,35 +104,38 @@ body {
     font-size: 20px;
 }
 
-/* === DISCORD CARD STYLING FIX === */
+/* === FIXED DISCORD CARD === */
 .discord-card {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(10, 10, 25, 0.75);
   border-radius: 16px;
   padding: 12px 18px;
-  width: 90%;
-  max-width: 400px;
-  margin: 20px auto;
-  box-shadow: 0 0 20px rgba(88, 101, 242, 0.3);
+  width: 100%;
+  max-width: 360px;
+  margin: 18px auto;
+  box-shadow: 0 0 25px rgba(90, 100, 255, 0.25);
+  backdrop-filter: blur(6px);
 }
 
 .avatar-container {
   position: relative;
+  flex-shrink: 0;
 }
 
 .avatar-container img {
-  width: 48px;
-  height: 48px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   object-fit: cover;
+  border: 2px solid rgba(255,255,255,0.15);
 }
 
 .indicator {
   position: absolute;
-  bottom: 4px;
-  right: 4px;
+  bottom: 2px;
+  right: 2px;
   width: 12px;
   height: 12px;
   border-radius: 50%;
@@ -143,26 +146,21 @@ body {
   flex: 1;
   margin-left: 14px;
   text-align: left;
-  font-size: 14px;
-  color: #ccc;
+  overflow: hidden;
 }
 
 #discord-username {
   font-weight: 600;
   color: #fff;
   display: block;
-  margin-bottom: 4px;
+  font-size: 15px;
 }
 
 #status-text {
   font-size: 13px;
-  opacity: 0.85;
-  color: #9fa8da;
+  color: #aab4ff;
+  opacity: 0.9;
   transition: opacity 0.3s ease;
-}
-
-#activity {
-  display: none; /* hide redundant section, you can re-enable if needed */
 }
 
 #discord-btn {
@@ -173,11 +171,12 @@ body {
   padding: 6px 12px;
   cursor: pointer;
   font-weight: 600;
-  transition: background 0.2s ease;
+  transition: background 0.2s ease, transform 0.2s ease;
 }
 
 #discord-btn:hover {
   background: #4752c4;
+  transform: scale(1.05);
 }
 
 /* === FORCE HORIZONTAL DISCORD CARD ON MOBILE === */
@@ -282,6 +281,7 @@ body {
     font-size: 0.9rem;
   }
 }
+
 
 
 
