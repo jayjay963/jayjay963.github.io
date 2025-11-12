@@ -104,19 +104,19 @@ body {
     font-size: 20px;
 }
 
-/* === FIXED DISCORD CARD === */
+/* === Discord Card === */
 .discord-card {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(10, 10, 25, 0.75);
+  background: rgba(5, 5, 15, 0.7);
   border-radius: 16px;
-  padding: 12px 18px;
+  padding: 10px 14px;
   width: 100%;
-  max-width: 360px;
+  max-width: 340px;
   margin: 18px auto;
-  box-shadow: 0 0 25px rgba(90, 100, 255, 0.25);
   backdrop-filter: blur(6px);
+  box-shadow: 0 0 25px rgba(88, 101, 242, 0.25);
 }
 
 .avatar-container {
@@ -125,41 +125,43 @@ body {
 }
 
 .avatar-container img {
-  width: 52px;
-  height: 52px;
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid rgba(255,255,255,0.15);
+  border: 2px solid rgba(255, 255, 255, 0.15);
 }
 
 .indicator {
   position: absolute;
-  bottom: 2px;
-  right: 2px;
-  width: 12px;
-  height: 12px;
+  bottom: 3px;
+  right: 3px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   border: 2px solid #000;
 }
 
 .status-text {
   flex: 1;
-  margin-left: 14px;
+  margin-left: 12px;
   text-align: left;
   overflow: hidden;
+  white-space: nowrap;
 }
 
 #discord-username {
-  font-weight: 600;
-  color: #fff;
   display: block;
+  font-weight: 600;
   font-size: 15px;
+  color: #fff;
 }
 
 #status-text {
+  display: block;
   font-size: 13px;
-  color: #aab4ff;
-  opacity: 0.9;
+  color: #b5baff;
+  opacity: 0.85;
   transition: opacity 0.3s ease;
 }
 
@@ -168,10 +170,11 @@ body {
   border: none;
   color: #fff;
   border-radius: 8px;
-  padding: 6px 12px;
+  padding: 6px 10px;
   cursor: pointer;
   font-weight: 600;
-  transition: background 0.2s ease, transform 0.2s ease;
+  font-size: 13px;
+  transition: background 0.25s ease, transform 0.25s ease;
 }
 
 #discord-btn:hover {
@@ -281,6 +284,7 @@ body {
     font-size: 0.9rem;
   }
 }
+
 
 
 
