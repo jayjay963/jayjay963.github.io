@@ -285,3 +285,37 @@ body {
     margin-top: 10px;
   }
 }
+
+/* === FIX FOR WIDER SCREENS (dot + alignment consistency) === */
+@media (min-width: 769px) {
+  .discord-card {
+    transform: none !important;
+  }
+
+  .avatar-container {
+    display: inline-block;
+    position: relative;
+    width: 60px;
+    height: 60px;
+    margin-top: 8px;
+  }
+
+  #discord-pic {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  #status-indicator {
+    position: absolute;
+    bottom: -3px; /* consistent overlap */
+    right: -3px;  /* consistent overlap */
+    width: 16px;
+    height: 16px;
+    background-color: #43b581;
+    border-radius: 50%;
+    border: 2px solid #0d0d1a;
+    z-index: 2;
+  }
+}
