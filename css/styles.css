@@ -304,14 +304,16 @@ body {
   }
 
   /* ✅ Fix dot position + responsive text size */
-  #status-indicator {
-    bottom: 4px;
-    right: 4px;
-    transform: translateY(-6px);
-    width: 10px;
-    height: 10px;
-    border: 1.5px solid #0d0d1a;
-  }
+ #status-indicator {
+    position: absolute;
+    bottom: 6%;          /* 👈 relative instead of fixed */
+    right: 6%;
+    width: 14%;
+    height: 14%;
+   border-radius: 50%;
+   background-color: #43b581; /* Discord green */
+   border: 2px solid #0d0d1a; /* outline for contrast */
+ }
 
   #profile-name {
     font-size: 1.2rem;
@@ -334,4 +336,5 @@ body {
     margin-top: 10px;
   }
 }
+
 
