@@ -247,6 +247,28 @@ body {
   }
 }
 
+.avatar-container {
+  position: relative;
+  display: inline-block;
+}
+
+#discord-pic {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+#status-indicator {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid #0d0d1a;
+}
+
 /* === MOBILE FIXES === */
 @media (max-width: 768px) {
   body {
@@ -308,24 +330,4 @@ body {
   }
 }
 
-.avatar-container {
-  position: relative;
-  display: inline-block;
-}
 
-#discord-pic {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-#status-indicator {
-  position: absolute;
-  bottom: 5px;
-  right: 5px;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  border: 2px solid #0d0d1a;
-}
