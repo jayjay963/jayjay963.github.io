@@ -120,6 +120,25 @@ body {
 
 .avatar-container {
   position: relative;
+  display: inline-block;
+}
+
+#discord-pic {
+  border-radius: 50%;
+  width: 60px; /* keep or adjust as needed */
+  height: 60px;
+  object-fit: cover;
+}
+
+/* move the green dot to bottom-right */
+#status-indicator {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid #0d0d1a; /* matches card background for clean edge */
 }
 
 .avatar-container img {
@@ -286,5 +305,6 @@ body {
     font-size: 0.9rem;
   }
 }
+
 
 
