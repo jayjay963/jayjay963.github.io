@@ -135,8 +135,8 @@ body {
 /* move the green dot to bottom-right */
 #status-indicator {
   position: absolute;
-  bottom: 3px; /* keep close to bottom edge */
-  right: 4px; /* align to right edge */
+  bottom: 5px; /* keep close to bottom edge */
+  right: 5px; /* align to right edge */
   transform: translateY(-4px); /* move dot up slightly relative to PFP */
   width: 14px;
   height: 14px;
@@ -330,6 +330,7 @@ body {
     font-size: 0.9rem;
   }
 }
+
 
 
 
