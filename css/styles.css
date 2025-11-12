@@ -135,12 +135,12 @@ body {
 /* move the green dot to bottom-right */
 #status-indicator {
   position: absolute;
-  bottom: 4px;
-  right: 4px;
+  bottom: 8px; /* raised from 3px — moves dot slightly up */
+  left: 3px;
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  border: 2px solid #0d0d1a; /* matches card background for clean edge */
+  border: 2px solid #0d0d1a;
 }
 
 .avatar-container img {
@@ -329,5 +329,6 @@ body {
     font-size: 0.9rem;
   }
 }
+
 
 
