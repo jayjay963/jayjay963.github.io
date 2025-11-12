@@ -118,51 +118,58 @@ body {
   box-shadow: 0 0 20px rgba(88, 101, 242, 0.3);
 }
 
+/* Profile Picture and Status Dot */
 .avatar-container {
   position: relative;
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
 }
 
 .avatar-container img {
-  width: 48px;
-  height: 48px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   object-fit: cover;
+  box-shadow: 0 0 15px rgba(88, 101, 242, 0.4);
 }
 
 .indicator {
   position: absolute;
-  bottom: 4px;
-  right: 4px;
-  width: 12px;
-  height: 12px;
+  bottom: 6px;
+  right: 6px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
-  border: 2px solid #000;
+  border: 3px solid rgba(0, 0, 0, 0.7);
+  background-color: #43b581; /* green = online */
+  box-shadow: 0 0 10px #43b581;
 }
 
+/* Username + Activity Stack */
 .status-text {
-  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   margin-left: 14px;
-  text-align: left;
-  font-size: 14px;
   color: #ccc;
+  text-align: left;
 }
 
-#discord-username {
+.username {
   font-weight: 600;
+  font-size: 1rem;
   color: #fff;
-  display: block;
-  margin-bottom: 4px;
 }
 
-#status-text {
-  font-size: 13px;
-  opacity: 0.85;
-  color: #9fa8da;
+.activity {
+  font-size: 0.9rem;
+  color: #a9b8ff; /* soft neon blue */
+  opacity: 0.9;
+  text-shadow: 0 0 6px rgba(150, 150, 255, 0.4);
+  margin-top: 3px;
   transition: opacity 0.3s ease;
-}
-
-#activity {
-  display: none; /* hide redundant section, you can re-enable if needed */
+  display: block; /* ensure it's visible */
 }
 
 #discord-btn {
@@ -282,4 +289,5 @@ body {
     font-size: 0.9rem;
   }
 }
+
 
