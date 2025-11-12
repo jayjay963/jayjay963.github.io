@@ -308,15 +308,15 @@ body {
   }
 }
 
-/* Move Discord avatar farther down */
+/* Force smaller Discord avatar down */
 .discord-card .avatar-container {
   position: relative;
-  top: 18px !important; /* increased from 10px to 18px */
+  top: 10px !important; /* move entire avatar section down */
 }
 
 .discord-card #discord-pic {
   display: block;
-  margin-top: 18px !important; /* syncs image with container movement */
+  margin-top: 10px !important; /* pushes image down more */
 }
 
 .discord-card #status-indicator {
@@ -328,7 +328,3 @@ body {
   border-radius: 50%;
   border: 2px solid #0d0d1a;
 }
-
-
-
-
