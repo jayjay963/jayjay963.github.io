@@ -300,6 +300,33 @@ body {
 
   .discord-card {
     margin-bottom: 16px;
+    transform: scale(0.95);
+  }
+
+  /* ✅ Fix dot position + responsive text size */
+  #status-indicator {
+    bottom: 4px;
+    right: 4px;
+    transform: translateY(-6px);
+    width: 10px;
+    height: 10px;
+    border: 1.5px solid #0d0d1a;
+  }
+
+  #profile-name {
+    font-size: 1.2rem;
+  }
+
+  #profile-title {
+    font-size: 0.9rem;
+  }
+
+  .status-text .username {
+    font-size: 0.9rem;
+  }
+
+  .activity {
+    font-size: 0.8rem;
   }
 
   .views {
@@ -307,32 +334,4 @@ body {
     margin-top: 10px;
   }
 }
-
-@media (max-width: 480px) {
-  .profile-card {
-    padding: 16px;
-  }
-
-  .profile-card {
-    max-width: 360px;
-  }
-    
-  .modern-btn {
-    font-size: 15px;
-    padding: 12px 0;
-  }
-
-  .profile-card h1 {
-    font-size: 1.2rem;
-  }
-
-  .profile-card p {
-    font-size: 0.9rem;
-  }
-}
-
-
-
-
-
 
