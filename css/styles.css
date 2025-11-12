@@ -305,13 +305,13 @@ body {
 
 #status-indicator {
   position: absolute;
-  bottom: 10px; /* 👈 raised slightly from 5px */
-  right: 5px;
-  transform: translateY(-2px); /* gentle lift for perfect edge alignment */
+  bottom: -2px; /* 👈 slightly overlaps the bottom edge */
+  right: -2px;  /* 👈 slightly overlaps the right edge */
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  border: 2px solid #0d0d1a;
+  background-color: #43b581; /* Discord green */
+  border: 2px solid #0d0d1a; /* border to separate from background */
 }
 
  }
@@ -347,6 +347,7 @@ body {
     margin-top: 10px;
   }
 }
+
 
 
 
